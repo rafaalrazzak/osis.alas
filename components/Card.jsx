@@ -11,7 +11,7 @@ export default function Card() {
             <span class="relative w-3 h-3 2 rounded-full bg-yellow-400"></span>
             <span class="relative w-3 h-3 2 rounded-full bg-green-400"></span>
           </div>
-          <div class="relative bg-blue-200 w-full h-96 border-t rounded-b-lg border-blue-700">
+          <div class="relative bg-blue-200 w-full h-96 rounded-b-lg ">
             <div class="absolute w-full h-full inset-0 bg-black opacity-50 rounded-b-lg"></div>
           </div>
         </div>
@@ -24,7 +24,7 @@ export default function Card() {
             <span class="relative w-3 h-3 2 rounded-full bg-yellow-400"></span>
             <span class="relative w-3 h-3 2 rounded-full bg-green-400"></span>
           </div>
-          <div class="relative bg-blue-200 w-full h-96 border-t rounded-b-lg border-blue-700">
+          <div class="relative bg-blue-200 w-full h-96 rounded-b-lg ">
             <div class="absolute w-full h-full inset-0 bg-black opacity-50 rounded-b-lg"></div>
           </div>
         </div>
