@@ -101,7 +101,7 @@ export default function Home() {
 									</Button>
 								</div>
 							</div>
-							<div className="bg-[#EAB308] mt-12 md:mt-0 justify-start align-start rounded-lg flex w-full md:w-6/12">
+							<div className="bg-[#EAB308] mt-12 xl:mt-0 justify-center align-center rounded-lg flex w-full md:w-6/12">
 								<Image
 									width={300}
 									height={300}
