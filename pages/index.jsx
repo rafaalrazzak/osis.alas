@@ -240,7 +240,7 @@ export default function Home() {
 								job="Youtuber Gaming"
 							/>
 							<TestimonialCard
-								testimoni={'"Yang Penting 1 Miliar ya guys ya"'}
+								testimoni={'"Gammer ganteng idaman"'}
 								avatar="https://images.unsplash.com/photo-1599566147214-ce487862ea4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
 								name="Reza Pardede"
 								job="Yotuber No 1"
