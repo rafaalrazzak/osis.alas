@@ -11,7 +11,7 @@ export default function Background() {
       <Image
         src="/grid.png"
         layout="fill"
-        className="w-screen opacity-50"
+        className="w-screen opacity-30"
         objectFit="cover"
       />
     </>

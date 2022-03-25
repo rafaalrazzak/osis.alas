@@ -17,24 +17,28 @@ export default function kirimMenfess() {
                 to="Rafa"
                 instagram="rafa.ar.id"
                 message="Sunt occaecat magna in commodo reprehenderit culpa mollit consequat ea."
+                date="25 Maret 2022"
               />
               <Card
                 from="Rafa"
                 to="Rafa"
                 instagram="rafa.ar.id"
                 message="Sunt occaecat magna in commodo reprehenderit culpa mollit consequat ea."
+                date="25 Maret 2022"
               />
               <Card
                 from="Rafa"
                 to="Rafa"
                 instagram="rafa.ar.id"
                 message="Sunt occaecat magna in commodo reprehenderit culpa mollit consequat ea."
+                date="25 Maret 2022"
               />
               <Card
                 from="Rafa"
                 to="Rafa"
                 instagram="rafa.ar.id"
                 message="Sunt occaecat magna in commodo reprehenderit culpa mollit consequat ea."
+                date="25 Maret 2022"
               />
             </div>
           </Container>
