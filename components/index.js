@@ -15,3 +15,4 @@ export { default as TestimonialCard } from "./TestimonialCard";
 export { default as Form } from "./Form";
 export { default as Gradient } from "./Gradient";
 export { default as Card } from "./Card";
+export { default as Background } from "./Background";

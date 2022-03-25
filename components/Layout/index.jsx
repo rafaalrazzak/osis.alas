@@ -21,8 +21,8 @@ export default function Layout({ children }) {
         }}
       />
       {children}
-      <footer className="relative pb-24 text-white flex">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-teal-500 to-sky-500/80 z-[-1]" />
+      <footer className="relative  text-white flex">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-teal-300 to-sky-300 z-[-1]" />
         <Container>
           <div className="flex py-14 border-b border-white/10 mb-14 flex-wrap">
             <div className="lg:w-6/12 md:w-7/12 w-full">

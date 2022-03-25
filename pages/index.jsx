@@ -134,7 +134,8 @@ export default function Home() {
           </Container>
         </div>
 
-        <section className="py-20 lg:py-40">
+        <section className="py-20 lg:py-40 bg-fixed">
+
           <Container>
             <div className="flex flex-wrap items-center -mx-10">
               <div className="w-full px-4 lg:w-6/12 lg:px-10 lg:mt-10">

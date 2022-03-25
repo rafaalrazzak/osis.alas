@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Gradient } from "@components";
+
 export default function Form() {
   const [toggle, setToggle] = useState(true);
   const [fromText, setFromText] = useState();
@@ -39,10 +39,10 @@ export default function Form() {
     }
   });
   return (
-    <div className="flex relative group justify-center my-24 lg:my-32 w-screen ">
-      <Gradient />
-      <div className="relative bg-white/60 filter backdrop-blur-lg shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
-         <div class="pb-3 flex-0 text-gray-400 whitespace-no-wrap">
+    
+      <div className="w-full lg:w-6/12">
+        <div className="relative bg-white/60 filter backdrop-blur-lg shadow-md rounded-lg px-8 pt-6 pb-8 flex flex-col w-full">
+          <div class="pb-3 flex-0 text-gray-400 whitespace-no-wrap">
             <i class="mx-1 rounded-full w-3 h-3 bg-red-400 inline-block"></i>
             <i class="mx-1 rounded-full w-3 h-3 bg-yellow-400 inline-block"></i>
             <i class="mx-1 rounded-full w-3 h-3 bg-green-400 inline-block"></i>
@@ -123,7 +123,7 @@ export default function Form() {
                   className="appearance-none block w-full bg-grey-lighter text-grey-darker bg-white/70 focus:ring focus:ring-sky-600/30 outline-0 transition-all duration-500 rounded py-3 px-4 mb-3 text-sm "
                   id="instagram"
                   name="instagram"
-                  placeholder="@username"
+                  placeholder="username"
                   value={igText}
                   onChange={(e) => handleIgTextFieldChange(e)}
                 />
@@ -162,7 +162,7 @@ export default function Form() {
               </button>
             </div>
           </form>
+        </div>
       </div>
-    </div>
   );
 }
