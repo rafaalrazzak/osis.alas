@@ -2,6 +2,7 @@ import { Container, Gradient } from "@components";
 export default function Card() {
   return (
     <Container className="flex justify-center">
+      <Gradient />
       <div className="flex justify-center my-24 lg:my-32 w-full ">
         <div className="bg-white/60 filter backdrop-blur-lg shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
           <div class="pb-3 flex-0 text-gray-400 whitespace-no-wrap">
