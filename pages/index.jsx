@@ -72,17 +72,17 @@ export default function Home() {
         <div className="relative">
           <div className="absolute w-full bottom-0 top-0 bg-gradient-to-br from-teal-500 to-sky-500 z-[-1]" />
           <Container className="lg:pt-64 lg:pb-32 py-40">
-            <div className="flex flex-wrap justify-center ">
-              <div className="w-full px-8  text-center items-center lg:w-6/12 xl:w-6/12 lg:text-left">
+            <div className="flex flex-wrap justify-center">
+              <div className="w-full px-8 items-center lg:w-6/12 xl:w-6/12 text-left">
                 <h1 className="text-4xl font-semibold leading-tight text-white lg:text-5xl">
                   Mention Confess
                 </h1>
-                <p className="mx-auto mt-4 text-xl leading-relaxed  text-white/80 xl:mx-0 w-full">
-                  merupakan pesan yang ingin disampaikan kepada seseorang tanpa
+                <p className="mx-auto mt-4 text-xl leading-relaxed  text-white/80 xl:mx-0 w-full max-w-xl">
+                  Merupakan pesan yang ingin disampaikan kepada seseorang tanpa
                   mengungkapkan identitas pengirim.
                 </p>
 
-                <div className="flex flex-wrap justify-center mt-10 lg:justify-start">
+                <div className="flex flex-wrap mt-10 justify-start">
                   <Button
                     variant="solidYellow"
                     href="/kirim-menfess"
