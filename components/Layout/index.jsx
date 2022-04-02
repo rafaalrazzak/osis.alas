@@ -13,7 +13,7 @@ export default function Layout({ children }) {
             <span className="px-2">Menfess OSIS/MPK</span>
           </div>
         }
-        className="bg-gradient-to-br from-teal-500/20 to-sky-500/20 filter backdrop-blur-lg border-b sm:border-0"
+        
         rightButton={{
           variant: "lightBlue",
           children: "Kirim Menfess",

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import Image from 'next/image';
-
 function TestimonialCard({ testimoni, name, avatar, job }) {
 	return (
 		<div className="bg-blue-50 p-8 rounded text-center md:text-left">
@@ -8,7 +7,7 @@ function TestimonialCard({ testimoni, name, avatar, job }) {
 				<p className="mb-8 text-gray-600">{testimoni}</p>
 				<div className="flex flex-col md:flex-row items-center">
 					<Image
-						className="w-14 h-14 object-cover rounded-full flex-shrink-0"
+            className="w-14 h-14 object-cover rounded-full flex-shrink-0"
 						src={avatar}
 						width={50}
 						height={50}

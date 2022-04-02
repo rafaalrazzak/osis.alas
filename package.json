@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "eslint ./pages/** -c .eslintrc.json --ext js,jsx",
     "fix": "eslint --fix"
@@ -12,6 +13,9 @@
   "dependencies": {
     "autoprefixer": "^10.2.6",
     "clsx": "^1.1.1",
+    "components": "^0.1.0",
+    "firebase-tools": "^10.5.0",
+    "libs": "^0.1.2",
     "next": "12.1.0",
     "postcss": "^8.4.12",
     "prop-types": "^15.7.2",
