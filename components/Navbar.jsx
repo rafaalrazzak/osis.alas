@@ -25,7 +25,7 @@ function Navbar({ logo, rightButtonHref, className, rightButton }) {
 		<nav
 			className={`fixed top-0 left-0 w-full h-20 items-center justify-center flex transition duration-300 ease-in-out ${
 				isTop
-					? 'border-none bg-teal-500'
+					? 'border-none bg-gradient-to-b from-teal-500'
 					: 'bg-gradient-to-br from-teal-500/20 to-sky-500/20 border-b border-gray-200 '
 			} top-0 z-30 flex items-center justify-between bg-white bg-opacity-30 backdrop-blur-lg firefox:bg-opacity-100 `}
 		>
