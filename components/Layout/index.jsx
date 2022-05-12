@@ -8,9 +8,9 @@ export default function Layout({ children }) {
     <div>
       <Navbar
         logo={
-          <div className="flex items-center text-base tracking-wide text text-white uppercase xl:my-6">
+          <div className="flex items-center justify-center  text-base tracking-wide text text-white uppercase xl:my-6">
             <Logo className="hidden md:flex" />
-            <span className="px-2">Menfess OSIS/MPK</span>
+            <span className="md:px-2 ">Menfess ALAS</span>
           </div>
         }
         
@@ -22,7 +22,7 @@ export default function Layout({ children }) {
       />
       {children}
       <footer className="relative  text-white flex">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-teal-300 to-sky-300 z-[-1]" />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-teal-500 to-sky-500 z-[-1]" />
         <Container>
           <div className="flex py-14 border-b border-white/10 mb-14 flex-wrap">
             <div className="lg:w-6/12 md:w-7/12 w-full">
@@ -56,7 +56,7 @@ export default function Layout({ children }) {
             <div className=" px-10 mb-10 sm:w-6/12 lg:w-3/12 lg:mb-0">
               <div className="flex items-center">
                 <Logo />
-                <h2 className="text-xl font-bold md:ml-4">Menfess OSIS/MPK</h2>
+                <h2 className="text-xl font-bold md:ml-4">Menfess Al-Asiyah</h2>
               </div>
               <p className="mt-4 text-white/60 leading-relaxed">
                 Design By{" "}
@@ -73,7 +73,7 @@ export default function Layout({ children }) {
             </div>
 
             <div className="w-full px-10 lg:w-3/12 md:w-6/12">
-              <FooterTitle>Social Media</FooterTitle>
+              <FooterTitle>OSIS SMK-Al-Asiyah</FooterTitle>
               <ul className="mt-4">
                 <li>
                   <FooterLink href="https://www.youtube.com/channel/UCQAn63ZnbmQ8b6KZhmIV03Q">
@@ -87,7 +87,7 @@ export default function Layout({ children }) {
                 </li>
               </ul>
             </div>
-            <div className="w-full px-10 lg:w-3/12 md:w-6/12">
+            <div className="w-full px-10 my-5 lg:w-3/12 md:w-6/12">
               <FooterTitle>SMK TI AL-Asiyah</FooterTitle>
               <ul className="mt-4">
                 <li>

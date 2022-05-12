@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Layout from "components/Layout";
-import { Form, Gradient, Background, Container } from "@components";
-import Image from "next/image";
+import { Form, Gradient, Container } from "@components";
 export default function kirimMenfess() {
   return (
     <div>

@@ -1,12 +1,19 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { HiDatabase } from "react-icons/hi";
 
 export default function Form() {
   const { register, handleSubmit } = useForm();
   const [data, setData] = useState("");
+
   const [toggle, setToggle] = useState(true);
-  const toggleClass = " transform translate-x-3";
-  
+  const toggleClass = "transform translate-x-3";
+
+  const onSubmit = (val) => {
+    setData(JSON.stringify(val));
+  };
+
+  console.log(data);
   return (
     <div className="w-full lg:w-6/12">
       <div className="relative bg-white/60 filter backdrop-blur-lg shadow-md rounded-lg px-8 pt-6 pb-8 flex flex-col w-full">
@@ -15,7 +22,7 @@ export default function Form() {
           <i className="mx-1 rounded-full w-3 h-3 bg-yellow-400 inline-block"></i>
           <i className="mx-1 rounded-full w-3 h-3 bg-green-400 inline-block"></i>
         </div>
-        <form onSubmit={handleSubmit((data) => setData(JSON.stringify(data)))}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="-mx-3 md:flex mb-6 ">
             <div className="relative md:w-1/2 px-3 mb-6 md:mb-0">
               <label
@@ -31,7 +38,7 @@ export default function Form() {
                 type="text"
                 placeholder="Nama Kamu"
                 disabled={toggle}
-                defaultValue="Anonymous"
+                defaultValue="Tidak diketahui"
                 {...register("from", { required: true, maxLength: 20 })}
               />
               <div className="flex flex-row justify-start h-5 m-3 w-full items-center ">
@@ -125,6 +132,7 @@ export default function Form() {
           </div>
         </form>
       </div>
+      {data}
     </div>
   );
 }
