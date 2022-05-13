@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Layout, Form, Gradient, Container } from "@components";
-export default function KirimMenfess() {
+export default function Kirim() {
   return (
     <div>
       <Head>
