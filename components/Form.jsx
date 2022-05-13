@@ -1,19 +1,26 @@
 import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { HiDatabase } from "react-icons/hi";
-
 export default function Form() {
-  const { register, handleSubmit } = useForm();
-  const [data, setData] = useState("");
+  const [formData, setFormData] = useState({});
 
+  const updateInput = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setFormData({
+      from: "",
+      to: "",
+      instagram: "",
+      message: "",
+    });
+  };
   const [toggle, setToggle] = useState(true);
   const toggleClass = "transform translate-x-3";
 
-  const onSubmit = (val) => {
-    setData(JSON.stringify(val));
-  };
-
-  console.log(data);
+  alert(formData);
   return (
     <div className="w-full lg:w-6/12">
       <div className="relative bg-white/60 filter backdrop-blur-lg shadow-md rounded-lg px-8 pt-6 pb-8 flex flex-col w-full">
@@ -22,7 +29,7 @@ export default function Form() {
           <i className="mx-1 rounded-full w-3 h-3 bg-yellow-400 inline-block"></i>
           <i className="mx-1 rounded-full w-3 h-3 bg-green-400 inline-block"></i>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit}>
           <div className="-mx-3 md:flex mb-6 ">
             <div className="relative md:w-1/2 px-3 mb-6 md:mb-0">
               <label
@@ -39,7 +46,8 @@ export default function Form() {
                 placeholder="Nama Kamu"
                 disabled={toggle}
                 defaultValue="Tidak diketahui"
-                {...register("from", { required: true, maxLength: 20 })}
+                onChange={updateInput}
+                value={formData.from || ""}
               />
               <div className="flex flex-row justify-start h-5 m-3 w-full items-center ">
                 {/*   Switch Container */}
@@ -77,7 +85,8 @@ export default function Form() {
                 name="to"
                 type="text"
                 placeholder="Seseorang"
-                {...register("to", { required: true, maxLength: 20 })}
+                onChange={updateInput}
+                value={formData.to || ""}
               />
             </div>
           </div>
@@ -95,7 +104,8 @@ export default function Form() {
                 id="instagram"
                 name="instagram"
                 placeholder="username"
-                {...register("instagram")}
+                onChange={updateInput}
+                value={formData.instagram || ""}
               />
               <p className="text-grey-dark text-xs italic">
                 instagram yang anda ingin tag (optional)
@@ -118,7 +128,8 @@ export default function Form() {
                 placeholder="Pesan yang ingin anda sampaikan"
                 row={4}
                 required
-                {...register("message")}
+                onChange={updateInput}
+                value={formData.message || ""}
               />
             </div>
           </div>
