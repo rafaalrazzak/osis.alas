@@ -126,7 +126,7 @@ export default function Form() {
                 name="msg"
                 placeholder="Pesan yang ingin anda sampaikan"
                 row={4}
-                required
+                
                 onChange={updateInput}
                 value={formData.message || ""}
               />

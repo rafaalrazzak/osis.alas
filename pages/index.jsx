@@ -85,7 +85,7 @@ export default function Home() {
                 <div className="flex flex-wrap mt-10 lg:justify-start">
                   <Button
                     variant="solidYellow"
-                    href="/kirim-menfess"
+                    href="/kirim"
                     className="justify-center w-full mb-2 md:mb-0 md:mr-4 md:w-auto"
                   >
                     Kirim Menfess

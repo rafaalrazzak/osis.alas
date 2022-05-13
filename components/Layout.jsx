@@ -17,7 +17,7 @@ export default function Layout({ children }) {
         rightButton={{
           variant: "lightBlue",
           children: "Kirim Menfess",
-          href: "/kirim-menfess",
+          href: "/kirim",
         }}
       />
       {children}
@@ -37,7 +37,7 @@ export default function Layout({ children }) {
             <div className="ml-auto lg:w-6/12 md:w-4/12 flex lg:space-x-4 lg:justify-end justify-center items-center flex-wrap flex-col lg:flex-row space-y-4 lg:space-y-0 w-full mt-4 md:mt-0">
               <Button
                 variant="solidYellow"
-                href="/kirim-menfess"
+                href="/kirim"
                 className="w-full justify-center md:w-auto"
               >
                 Kirim Menfess
