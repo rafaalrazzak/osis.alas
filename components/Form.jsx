@@ -19,8 +19,7 @@ export default function Form() {
   };
   const [toggle, setToggle] = useState(true);
   const toggleClass = "transform translate-x-3";
-
-  alert(formData);
+  console.log(formData)
   return (
     <div className="w-full lg:w-6/12">
       <div className="relative bg-white/60 filter backdrop-blur-lg shadow-md rounded-lg px-8 pt-6 pb-8 flex flex-col w-full">
