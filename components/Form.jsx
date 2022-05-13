@@ -74,7 +74,7 @@ export default function Form() {
             <div className="md:w-1/2 px-3">
               <label
                 className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                htmlFor="dari"
+                htmlFor="untuk"
               >
                 Untuk
               </label>
@@ -142,7 +142,6 @@ export default function Form() {
           </div>
         </form>
       </div>
-      {formData}
     </div>
   );
 }
