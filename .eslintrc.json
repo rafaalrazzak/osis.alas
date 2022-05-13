@@ -23,7 +23,7 @@
     "import"
   ],
   "rules": {
-    "pretier/prettier": "0",
+    "pretier/prettier": 1,
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "indent": [
