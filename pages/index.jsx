@@ -1,4 +1,5 @@
 import {
+  Layout,
   Button,
   Container,
   HeroFeature,
@@ -18,7 +19,6 @@ import {
 import Slider from "react-slick";
 import Image from "next/image";
 import Head from "next/head";
-import Layout from "components/Layout";
 
 export default function Home() {
   const convertImage = ({ w, h, src }) => `
