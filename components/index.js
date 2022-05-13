@@ -4,6 +4,7 @@ export { default as FooterLink } from "./FooterLink";
 export { default as FooterTitle } from "./FooterTitle";
 export { default as HeroFeature } from "./HeroFeature";
 export { default as Logo } from "./Logo";
+export {default as Layout } from "./Layout/"
 export { default as IntroCard } from "./IntroCard";
 export { default as LangCard } from "./LangCard";
 export { default as Link } from "./Link";
