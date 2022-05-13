@@ -1,7 +1,6 @@
 import Head from "next/head";
-import Layout from "components/Layout";
-import { Card, Background, Container } from "@components";
-export default function kirimMenfess() {
+import { Card, Layout, Background, Container } from "@components";
+export default function Menfess() {
   return (
     <div>
       <Head>
