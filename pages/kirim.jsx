@@ -4,14 +4,12 @@ export default function Kirim() {
   return (
     <div>
       <Head>
-        <title>Menfess OSIS/MPK | Kirim Menfess</title>
+        <title>OSIS | Kirim Saran</title>
       </Head>
-      <div className="flex justify-center">
-        <Gradient />
-      </div>
+      <Gradient />
       <Layout>
         <Container>
-          <section className="my-32 flex justify-center">
+          <section className="mt-36 mb-24 flex justify-center">
             <Form />
           </section>
         </Container>

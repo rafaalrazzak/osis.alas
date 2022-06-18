@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 function IntroCard({ icon: Icon, title, content, list }) {
   return (

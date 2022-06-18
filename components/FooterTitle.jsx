@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-function FooterTitle({ children}) {
+function FooterTitle({ children }) {
   return (
     <h2 className="font-semibold tracking-wide text-white uppercase text-opacity-100 mb-4 ">
       {children}

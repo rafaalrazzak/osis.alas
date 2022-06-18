@@ -1,6 +1,6 @@
 // import { Link } from 'react-router-dom';
-import Link from 'next/link';
-import PropTypes from 'prop-types';
+import Link from "next/link";
+import PropTypes from "prop-types";
 
 function LinkElement({ href, className, children, ...props }) {
   return (
@@ -13,7 +13,7 @@ function LinkElement({ href, className, children, ...props }) {
 }
 
 LinkElement.defaultProps = {
-  href: '/',
+  href: "/",
 };
 
 LinkElement.propTypes = {

@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
+import { SubmitPost } from "@/libs/submit";
 export default function Form() {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    from: "Seseorang",
+    msg: "",
+  });
 
   const updateInput = (e) => {
     setFormData({
@@ -8,18 +12,22 @@ export default function Form() {
       [e.target.name]: e.target.value,
     });
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
+
+  function resetForm() {
     setFormData({
-      from: "",
-      to: "",
-      instagram: "",
-      message: "",
+      from: "Seseorang",
+      msg: "",
     });
-  };
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    await SubmitPost(formData.from, formData.msg).then(() => {
+      resetForm();
+    });
+  }
   const [toggle, setToggle] = useState(true);
   const toggleClass = "transform translate-x-3";
-  console.log(formData);
   return (
     <div className="w-full lg:w-6/12">
       <div className="relative bg-white/60 filter backdrop-blur-lg shadow-md rounded-lg px-8 pt-6 pb-8 flex flex-col w-full">
@@ -30,7 +38,7 @@ export default function Form() {
         </div>
         <form onSubmit={handleSubmit}>
           <div className="-mx-3 md:flex mb-6 ">
-            <div className="relative md:w-1/2 px-3 mb-6 md:mb-0">
+            <div className="relative w-full px-3 mb-6 md:mb-0">
               <label
                 className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
                 htmlFor="dari"
@@ -44,9 +52,9 @@ export default function Form() {
                 type="text"
                 placeholder="Nama Kamu"
                 disabled={toggle}
-                defaultValue="Tidak diketahui"
                 onChange={updateInput}
-                value={formData.from || ""}
+                value={formData.from}
+                required
               />
               <div className="flex flex-row justify-start h-5 m-3 w-full items-center ">
                 {/*   Switch Container */}
@@ -55,6 +63,10 @@ export default function Form() {
                   className="w-8 h-4 flex items-center bg-gray-100 rounded-full p-1 cursor-pointer shadow-md"
                   onClick={() => {
                     setToggle(!toggle);
+                    setFormData({
+                      ...formData,
+                      from: "",
+                    });
                   }}
                 >
                   {/* Switch */}
@@ -70,46 +82,6 @@ export default function Form() {
                 <div className="text-xs m-2 flex">Anonymous</div>
               </div>
             </div>
-
-            <div className="md:w-1/2 px-3">
-              <label
-                className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                htmlFor="untuk"
-              >
-                Untuk
-              </label>
-              <input
-                className="appearance-none block w-full bg-grey-lighter text-grey-darker bg-white/70 focus:ring focus:ring-sky-600/30 outline-0 rounded py-3 px-4 text-sm transition-all duration-500"
-                id="to"
-                name="to"
-                type="text"
-                placeholder="Seseorang"
-                onChange={updateInput}
-                value={formData.to || ""}
-              />
-            </div>
-          </div>
-
-          <div className="-mx-3 md:flex mb-6">
-            <div className=" md:w-full px-3">
-              <label
-                className="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
-                htmlFor="instagram"
-              >
-                Instagram
-              </label>
-              <input
-                className="appearance-none block w-full bg-grey-lighter text-grey-darker bg-white/70 focus:ring focus:ring-sky-600/30 outline-0 transition-all duration-500 rounded py-3 px-4 mb-3 text-sm "
-                id="instagram"
-                name="instagram"
-                placeholder="username"
-                onChange={updateInput}
-                value={formData.instagram || ""}
-              />
-              <p className="text-grey-dark text-xs italic">
-                instagram yang anda ingin tag (optional)
-              </p>
-            </div>
           </div>
 
           <div className="-mx-3 md:flex mb-6">
@@ -121,14 +93,14 @@ export default function Form() {
                 Pesan
               </label>
               <textarea
+                required
                 className="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded py-3 px-4 mb-3 text-sm bg-white/70 focus:ring focus:ring-sky-600/30 outline-0 transition-all duration-500"
                 id="msg"
                 name="msg"
                 placeholder="Pesan yang ingin anda sampaikan"
                 row={4}
-                
                 onChange={updateInput}
-                value={formData.message || ""}
+                value={formData.msg}
               />
             </div>
           </div>

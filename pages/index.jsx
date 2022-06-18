@@ -108,7 +108,7 @@ export default function Home() {
                   src="/Hero.png"
                   loading="lazy"
                   placeholder="blur"
-									blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
                     convertImage(10, 10, "/Hero.png")
                   )}`}
                 />
@@ -134,7 +134,6 @@ export default function Home() {
         </div>
 
         <section className="py-20 lg:py-40 bg-fixed">
-
           <Container>
             <div className="flex flex-wrap items-center -mx-10">
               <div className="w-full px-4 lg:w-6/12 lg:px-10 lg:mt-10">
@@ -196,7 +195,7 @@ export default function Home() {
               <div className="order-1 w-full px-6 mb-10 xl:order-2 lg:w-6/12 lg:mx-0 lg:mb-0 ">
                 <div className="flex items-center justify-center bg-[#1E90FF] rounded-lg shadow-lg w-full">
                   <Image
-										className="shadow-lg rounded-lg"
+                    className="shadow-lg rounded-lg"
                     src="/Menfess.png"
                     alt="Mari Menfess"
                     width={300}

@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 function HeroFeature({ title, description, icon: Icon }) {
   return (

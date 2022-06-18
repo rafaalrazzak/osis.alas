@@ -1,10 +1,11 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 function FooterLink({ children, href }) {
   return (
     <a
       href={href}
-      className="inline-block mb-2 text-lg text-white hover:text-opacity-100 transition text-opacity-70">
+      className="inline-block mb-2 text-lg text-white hover:text-opacity-100 transition text-opacity-70"
+    >
       {children}
     </a>
   );

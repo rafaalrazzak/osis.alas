@@ -1,25 +1,35 @@
-import { Navbar, Logo, Container,Button,FooterTitle, FooterLink
- } from "@components";
- import {HiOutlineAnnotation} from 'react-icons/hi'
+import {
+  Navbar,
+  Logo,
+  Container,
+  Button,
+  FooterTitle,
+  FooterLink,
+} from "@components";
+import { HiOutlineAnnotation } from "react-icons/hi";
+import { Toaster } from "react-hot-toast";
 
 export default function Layout({ children }) {
-     
   return (
     <div>
       <Navbar
         logo={
-          <div className="flex items-center justify-center  text-base tracking-wide text text-white uppercase xl:my-6">
-            <Logo className="hidden md:flex" />
-            <span className="md:px-2 ">Menfess ALAS</span>
+          <div className="flex items-center justify-center w-full text-base tracking-wide text-white uppercase xl:my-6">
+            <div className="flex items-center w-full">
+              <Logo className="hidden md:flex" />
+              <span className="md:px-2">OSIS SMK Al-Asiyah</span>
+            </div>
           </div>
         }
-        
         rightButton={{
           variant: "lightBlue",
-          children: "Kirim Menfess",
+          children: "Kirim Saran",
           href: "/kirim",
         }}
+        
       />
+      
+      <Toaster />
       {children}
       <footer className="relative  text-white flex">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-teal-500 to-sky-500 z-[-1]" />
@@ -27,11 +37,10 @@ export default function Layout({ children }) {
           <div className="flex py-14 border-b border-white/10 mb-14 flex-wrap">
             <div className="lg:w-6/12 md:w-7/12 w-full">
               <div className="text-2xl font-semibold text-white">
-                Sudah siap mengirim Menfess kamu?
+                Sudah siap mengirim Saran kamu?
               </div>
               <div className="text-white/60 mt-2 text-lg">
-                Kapan lagi coba kirim Menfess buat doi, kali aja dia nanti peka
-                hehe
+                Kapan lagi coba kirim saran buat membangun OSIS
               </div>
             </div>
             <div className="ml-auto lg:w-6/12 md:w-4/12 flex lg:space-x-4 lg:justify-end justify-center items-center flex-wrap flex-col lg:flex-row space-y-4 lg:space-y-0 w-full mt-4 md:mt-0">
@@ -40,15 +49,14 @@ export default function Layout({ children }) {
                 href="/kirim"
                 className="w-full justify-center md:w-auto"
               >
-                Kirim Menfess
+                Kirim Saran
               </Button>
               <Button
                 variant="lightOpacity"
-                href="/menfess"
+                href="/saran"
                 className="w-full justify-center md:w-auto"
               >
-                <HiOutlineAnnotation className="h-auto w-6 mr-2" /> Lihat
-                Menfess
+                <HiOutlineAnnotation className="h-auto w-6 mr-2" /> Lihat Saran
               </Button>
             </div>
           </div>
@@ -56,7 +64,7 @@ export default function Layout({ children }) {
             <div className=" px-10 mb-10 sm:w-6/12 lg:w-3/12 lg:mb-0">
               <div className="flex items-center">
                 <Logo />
-                <h2 className="text-xl font-bold md:ml-4">Menfess Al-Asiyah</h2>
+                <h2 className="text-xl font-bold md:ml-4">Kotak Saran OSIS</h2>
               </div>
               <p className="mt-4 text-white/60 leading-relaxed">
                 Design By{" "}

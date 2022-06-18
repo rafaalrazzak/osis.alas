@@ -1,11 +1,9 @@
-import '../styles/globals.css';
+import "../styles/globals.css";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 function MyApp({ Component, pageProps }) {
-  return (
-     <Component {...pageProps} />
-  );
+  return <Component {...pageProps} />;
 }
 
 MyApp.propTypes = {
