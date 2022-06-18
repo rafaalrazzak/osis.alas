@@ -26,9 +26,8 @@ export default function Layout({ children }) {
           children: "Kirim Saran",
           href: "/kirim",
         }}
-        
       />
-      
+
       <Toaster />
       {children}
       <footer className="relative  text-white flex">
@@ -64,7 +63,7 @@ export default function Layout({ children }) {
             <div className=" px-10 mb-10 sm:w-6/12 lg:w-3/12 lg:mb-0">
               <div className="flex items-center">
                 <Logo />
-                <h2 className="text-xl font-bold md:ml-4">Kotak Saran OSIS</h2>
+                <h2 className="font-bold md:ml-4">OSIS SMK Al-Asiyah</h2>
               </div>
               <p className="mt-4 text-white/60 leading-relaxed">
                 Design By{" "}

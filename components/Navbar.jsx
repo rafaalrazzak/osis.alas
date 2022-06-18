@@ -37,20 +37,21 @@ function Navbar({ logo, rightButtonHref, className, rightButton }) {
           </div>
           <div className="flex space-x-4 w-8/12 justify-end">
             <Button
-            href={rightButtonHref}
-            className={"text-center text-xs sm:text-sm md:text-base lg:ml-8 justify-center mt-0 "}
-            size="small"
-            variant="solidBlue"
-            {...rightButton}
-          />
-          <Button
-            variant="solidYellow"
-            size="small"
-            href="/auth/signin"
-            className="text-center text-xs sm:text-sm md:text-base lg:ml-8 justify-center mt-0"
-          >
-             Sign In
-          </Button>
+              href={rightButtonHref}
+              className={
+                "text-center text-xs sm:text-sm md:text-base lg:ml-8 justify-center mt-0 "
+              }
+              size="small"
+              {...rightButton}
+            />
+            <Button
+              variant="solidYellow"
+              size="small"
+              href="/auth/signin"
+              className="text-center text-xs sm:text-sm md:text-base lg:ml-8 justify-center mt-0"
+            >
+              Sign In
+            </Button>
           </div>
         </div>
       </Container>
@@ -63,7 +64,7 @@ Navbar.defaultProps = {
   items: [],
   rightButtonChildren: "Kirim Saran",
   rightButtonHref: "/",
-  rightButtonColor: "blue",
+  rightButtonColor: "yellow",
   className: "",
   rightButton: {},
 };

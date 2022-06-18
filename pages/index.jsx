@@ -66,7 +66,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Menfess OSIS/MPK</title>
+        <title>OSIS | SMK AL-ASIYAH</title>
       </Head>
       <Layout>
         <div className="relative">
@@ -75,28 +75,20 @@ export default function Home() {
             <div className="flex flex-wrap justify-center">
               <div className="w-full px-8 items-center text-center justify-center lg:w-6/12 xl:w-6/12 lg:text-left lg:justify-start">
                 <h1 className="text-4xl font-semibold  leading-tight text-white lg:text-5xl">
-                  Mention Confess
+                  Organisasi Siswa Intra Sekolah
                 </h1>
                 <p className="mx-auto mt-4 text-xl leading-relaxed  text-white/80 xl:mx-0 w-full max-w-xl ">
                   Merupakan pesan yang ingin disampaikan kepada seseorang tanpa
                   mengungkapkan identitas pengirim.
                 </p>
 
-                <div className="flex flex-wrap mt-10 lg:justify-start">
+                <div className="flex flex-wrap mt-10 ">
                   <Button
                     variant="solidYellow"
                     href="/kirim"
                     className="justify-center w-full mb-2 md:mb-0 md:mr-4 md:w-auto"
                   >
-                    Kirim Menfess
-                  </Button>
-                  <Button
-                    variant="lightOpacity"
-                    href="/menfess"
-                    className="flex justify-center w-full md:w-auto"
-                  >
-                    <HiOutlineChatAlt2 className="w-6 h-auto mr-2" />
-                    Lihat Menfess
+                    Kirim Saran
                   </Button>
                 </div>
               </div>
