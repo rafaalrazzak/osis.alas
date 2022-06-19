@@ -203,8 +203,8 @@ export default function Home() {
                 <div className="flex w-full items-center justify-center rounded-lg bg-[#1E90FF] shadow-lg">
                   <Image
                     className="rounded-lg shadow-lg"
-                    src="/Menfess.png"
-                    alt="Mari Menfess"
+                    src="/Join.png"
+                    alt="Join"
                     width={300}
                     height={500}
                     loading="lazy"
