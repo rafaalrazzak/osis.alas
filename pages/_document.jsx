@@ -10,40 +10,28 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="title" content="Menfess — OSIS/MPK" />
-          <meta
-            name="description"
-            content="Menfess App by OSIS/MPK SMK TI AL-Asiyah"
-          />
+          <meta name="title" content="OSIS | SMK-AL-ASIYAH" />
+          <meta name="description" content="OSIS SMK TI AL-AL-ASIYAH" />
           <meta property="og:type" content="website" />
-          <meta
-            property="og:url"
-            content="https://menfess-osis-mpk.vercel.app/"
-          />
-          <meta property="og:title" content="Menfess — OSIS/MPK" />
-          <meta
-            property="og:description"
-            content="Menfess App by OSIS/MPK SMK TI AL-Asiyah"
-          />
+          <meta property="og:url" content="https://osis-alas.vercel.app" />
+          <meta property="og:title" content="OSIS | SMK-AL-ASIYAH" />
+          <meta property="og:description" content="OSIS SMK TI AL-AL-ASIYAH" />
           <meta
             property="og:image"
-            content="https://firebasestorage.googleapis.com/v0/b/raf-ar.appspot.com/o/raf%2FImageSite%2Fmenfess-web.jpeg?alt=media&token=f695b536-3347-48d4-abf4-9d4cb465f67e"
+            content="https://res.cloudinary.com/raf-ar/image/upload/v1655638430/thumbnail/OSIS_SMK_AL-ASIYAH.png"
           />
           <meta property="twitter:card" content="summary_large_image" />
-          <meta
-            property="twitter:url"
-            content="https://menfess-osis-mpk.vercel.app/"
-          />
+          <meta property="twitter:url" content="https://osis-alas.vercel.app" />
           <meta property="twitter:title" content="Menfess — OSIS/MPK" />
           <meta
             property="twitter:description"
-            content="Menfess App by OSIS/MPK SMK TI AL-Asiyah"
+            content="OSIS SMK TI AL-AL-ASIYAH"
           />
           <meta
             property="twitter:image"
-            content="https://firebasestorage.googleapis.com/v0/b/raf-ar.appspot.com/o/raf%2FImageSite%2Fmenfess-web.jpeg?alt=media&token=f695b536-3347-48d4-abf4-9d4cb465f67e"
+            content="https://res.cloudinary.com/raf-ar/image/upload/v1655638430/thumbnail/OSIS_SMK_AL-ASIYAH.png"
           />
-          <link rel="canonical" href="https://menfess-osis-mpk.vercel.app/" />
+          <link rel="canonical" href="https://osis-alas.vercel.app" />
           <link rel="shortcut icon" href="/static/logo-osis.png" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
