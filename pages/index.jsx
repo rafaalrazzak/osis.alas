@@ -5,7 +5,7 @@ import {
   HiInboxIn,
   HiOutlineAnnotation,
 } from "react-icons/hi";
-import { FiTrendingUp, FiPlay, FiUser } from "react-icons/Fi";
+import { FiTrendingUp, FiPlay, FiUser } from "react-icons/fi";
 import Slider from "react-slick";
 import Image from "next/image";
 import Head from "next/head";
