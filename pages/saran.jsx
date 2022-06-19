@@ -7,13 +7,13 @@ import fetch from "@/libs/supabase/fetch";
 export default function Menfess() {
   const { push } = useRouter();
   const session = supabase.auth.session();
-  if (!session) {
-    push("/");
-  }
+  
   const [saran, setSaran] = useState();
   useEffect(() => {
     if (session) {
       fetch().then((x) => setSaran(x));
+    }else{
+      push("/")
     }
   }, []);
   return (
