@@ -1,4 +1,15 @@
 import {
+  HiOutlineSpeakerphone,
+  HiOutlineChatAlt,
+  HiOutlineLockClosed,
+  HiInboxIn,
+  HiOutlineAnnotation,
+} from "react-icons/hi";
+import { FiTrendingUp, FiPlay, FiUser } from "react-icons/Fi";
+import Slider from "react-slick";
+import Image from "next/image";
+import Head from "next/head";
+import {
   Layout,
   Button,
   Container,
@@ -9,20 +20,11 @@ import {
   SectionTitle,
   TestimonialCard,
 } from "@components";
-import {
-  HiOutlineHeart,
-  HiOutlineSparkles,
-  HiOutlineChatAlt2,
-  HiOutlineSpeakerphone,
-  HiOutlineChatAlt,
-  HiOutlineLockClosed,
-} from "react-icons/hi";
-import { MdOutlinePersonOutline } from "react-icons/md"
-import Slider from "react-slick";
-import Image from "next/image";
-import Head from "next/head";
+import supabase from "@/libs/supabase";
 
 export default function Home() {
+  const session = supabase.auth.session();
+
   const convertImage = ({ w, h, src }) => `
        <Image src="${src}" width="${w}" height="${h}" quality="1"/>
          `;
@@ -70,30 +72,43 @@ export default function Home() {
       <Head>
         <title>OSIS | SMK AL-ASIYAH</title>
       </Head>
-      <Layout>
-        <div className="relative">
-          <div className="absolute w-full bottom-0 top-0 bg-gradient-to-br from-teal-500 to-sky-500 z-[-1]" />
-          <Container className="lg:pt-64 lg:pb-32 py-40">
+      <Layout noBg>
+        <div className="z-[-1] w-full bg-gradient-to-br from-teal-500 to-sky-500">
+          <Container className="py-40 lg:pt-64 lg:pb-32">
             <div className="flex flex-wrap justify-center">
-              <div className="w-full px-8 items-center text-center justify-center lg:w-6/12 xl:w-6/12 lg:text-left lg:justify-start">
+              <div className="w-full items-center justify-center px-8 text-center lg:w-6/12 lg:justify-start lg:text-left xl:w-6/12">
                 <h1 className="text-4xl font-semibold  leading-tight text-white lg:text-5xl">
                   Organisasi Siswa Intra Sekolah
                 </h1>
-                <p className="mx-auto mt-4 text-xl leading-relaxed  text-white/80 xl:mx-0 w-full max-w-xl ">
-                  Pusat Kegiatan Pembinaan Kesiswaan di sekolah untuk pengembangan minat, bakat serta potensi Siswa.
+                <p className="mx-auto mt-4 w-full max-w-xl  text-xl leading-relaxed text-white/80 xl:mx-0 ">
+                  Pusat Kegiatan Pembinaan Kesiswaan di sekolah untuk
+                  pengembangan minat, bakat serta potensi Siswa.
                 </p>
 
-                <div className="flex flex-wrap mt-10 ">
+                <div className="mt-10 flex w-full flex-wrap justify-center gap-4 md:flex-nowrap lg:justify-start">
                   <Button
                     variant="solidYellow"
                     href="/kirim"
-                    className="justify-center w-full mb-2 md:mb-0 md:mr-4 md:w-auto"
+                    className={`mb-2 w-full justify-center sm:w-8/12 md:w-4/12 lg:w-8/12 ${
+                      session ?? "w-full sm:w-8/12 md:w-4/12 lg:w-8/12"
+                    }`}
                   >
+                    <HiInboxIn className="mr-2 h-auto w-6" />
                     Kirim Saran
                   </Button>
+                  {session && (
+                    <Button
+                      variant="outlineBlue"
+                      href="/saran"
+                      className="mb-2 w-full w-full justify-center sm:w-8/12 md:w-4/12 lg:w-8/12"
+                    >
+                      <HiOutlineAnnotation className="mr-2 h-auto w-6" />
+                      Lihat Saran
+                    </Button>
+                  )}
                 </div>
               </div>
-              <div className="bg-[#EAB308] mt-12 lg:mt-0 justify-center align-center rounded-lg flex w-full md:w-6/12">
+              <div className="align-center mt-12 flex w-full justify-center rounded-lg bg-[#EAB308] md:w-8/12 lg:mt-0 lg:w-6/12">
                 <Image
                   width={300}
                   height={300}
@@ -107,33 +122,33 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="flex lg:space-x-6 md:mt-40 mt-20 flex-wrap space-y-10 lg:space-y-0">
-              <div className="lg:flex-1 w-full lg:border-r border-white/10">
+            <div className="mx-auto mt-20 flex flex-wrap justify-center space-y-10 md:mt-40 lg:space-x-6 lg:space-y-0">
+              <div className="flex w-full border-b border-white/30 pb-8 md:justify-center lg:flex-1 lg:justify-end lg:border-r lg:border-b-0 lg:pr-12 lg:pb-0">
                 <HeroFeature
-                  title="Pesan Di Enskirpsi End-To-End"
-                  description="Bahkan kami sendiri tidak tahu siapa yang mengirim pesan tersebut."
-                  icon={HiOutlineLockClosed}
+                  title="Kreativitas"
+                  description="Mengembangkan kreativitas siswa"
+                  icon={FiTrendingUp}
                 />
               </div>
-              <div className="lg:flex-1 w-full lg:border-r border-white/10">
+              <div className="flex w-full md:justify-center lg:flex-1">
                 <HeroFeature
-                  title="Saran Dikirimkan Secara Otomatis"
-                  description="Kami menggunakan server untuk mengirimkan saran dari publik"
-                  icon={HiOutlineChatAlt}
+                  title="Program-program menarik"
+                  description="Menjalankan program-program menarik"
+                  icon={FiPlay}
                 />
               </div>
             </div>
           </Container>
         </div>
 
-        <section className="py-20 lg:py-40 bg-fixed">
+        <section className="bg-fixed py-12 md:py-24">
           <Container>
-            <div className="flex flex-wrap items-center -mx-10">
-              <div className="w-full px-4 lg:w-6/12 lg:px-10 lg:mt-10">
-                <div className="relative sm:p-10 w-full">
-                  <div className="absolute -top-6 lg:flex sm:top-5 left-5 sm:left-[5px] z-[-1] w-64 h-64 bg-blue-100 shadow-lg" />
-                  <div className="absolute lg:flex bottom-[-35px] right-[5px] z-[-1] w-64 h-64 bg-blue-500 rounded-full shadow-lg" />
-                  <div className="bg-[#FFB1A3] rounded-lg shadow-xl flex items-center justify-center w-full">
+            <div className="flex flex-wrap items-center">
+              <div className="w-full px-4 lg:mt-10 lg:w-6/12 lg:px-10">
+                <div className="relative w-full sm:p-10">
+                  <div className="absolute -top-6 left-5 z-[-1] h-64 w-64 bg-blue-100 shadow-lg sm:top-5 sm:left-[5px] lg:flex" />
+                  <div className="absolute bottom-[-35px] right-[5px] z-[-1] h-64 w-64 rounded-full bg-blue-500 shadow-lg lg:flex" />
+                  <div className="flex w-full items-center justify-center rounded-lg bg-[#FFB1A3] shadow-xl">
                     <Image
                       alt="Intro"
                       src="/Intro.png"
@@ -148,15 +163,15 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="lg:w-6/12 px-10 mt-20 lg:mt-0">
-                <SectionBadge>Introduction</SectionBadge>
+              <div className="mt-20 px-10 lg:mt-0 lg:w-6/12">
+                <SectionBadge className="text-white">Introduction</SectionBadge>
                 <SectionTitle className="mb-8">
                   Apa manfaatnya jadi{" "}
                   <span className="font-semibold"> OSIS?</span>
                 </SectionTitle>
 
                 <IntroCard
-                  icon={MdOutlinePersonOutline}
+                  icon={FiUser}
                   title="Melatih Jiwa Kepemimpinan Siswa"
                   content="Jiwa kepemimpinan merupakan keniscayaan bagi generasi muda"
                 />
@@ -171,24 +186,23 @@ export default function Home() {
         </section>
         <section>
           <Container>
-            <div className="flex flex-wrap items-center -mx-6">
+            <div className="-mx-6 flex flex-wrap items-center">
               <div className="order-2 w-full px-6 lg:w-6/12 xl:order-1">
-                <SectionBadge>Mari Menfess</SectionBadge>
+                <SectionBadge>Ayo Gabung Besama Kami</SectionBadge>
                 <SectionTitle>
-                  Mari Coba Untuk Mengirimkan Pesan Misterius Untuk Orang Yang
-                  Anda Suka{" "}
+                  Kami akan membimbing kalian menuju masa depan yang lebih baik{" "}
                   <span role="img" aria-label="ok">
                     👌
                   </span>
                 </SectionTitle>
                 <SectionDescription>
-                  Kami siap menampung pesan anda untuk orang yang anda suka
+                  Banyak program-program keren yang akan menyambut kamu
                 </SectionDescription>
               </div>
-              <div className="order-1 w-full px-6 mb-10 xl:order-2 lg:w-6/12 lg:mx-0 lg:mb-0 ">
-                <div className="flex items-center justify-center bg-[#1E90FF] rounded-lg shadow-lg w-full">
+              <div className="order-1 mb-10 w-full px-6 lg:mx-0 lg:mb-0 lg:w-6/12 xl:order-2 ">
+                <div className="flex w-full items-center justify-center rounded-lg bg-[#1E90FF] shadow-lg">
                   <Image
-                    className="shadow-lg rounded-lg"
+                    className="rounded-lg shadow-lg"
                     src="/Menfess.png"
                     alt="Mari Menfess"
                     width={300}
@@ -203,18 +217,18 @@ export default function Home() {
               </div>
             </div>
 
-            <hr className="border-gray-100 md:my-10 my-5" />
+            <hr className="my-5 border-gray-100 md:my-10" />
           </Container>
         </section>
 
         <section className="py-20 lg:py-40">
           <Container>
-            <div className="flex -mx-6 flex-wrap">
-              <div className="lg:w-6/12 w-full px-6">
-                <SectionBadge>Testimonial</SectionBadge>
+            <div className="-mx-6 flex flex-wrap">
+              <div className="w-full px-6 lg:w-6/12">
+                <SectionBadge>Pendapat</SectionBadge>
                 <SectionTitle>
-                  Apa kata anonymous yang pernah{" "}
-                  <span className="font-semibold">kirim Menfess</span> kesini?
+                  Apa kata orang lain tentang{" "}
+                  <span className="font-semibold">OSIS</span>?
                 </SectionTitle>
               </div>
             </div>

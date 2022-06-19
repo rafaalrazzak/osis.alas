@@ -3,7 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@components": ["components/index.js"],
-      "@/libs/*": ["libs/*"]
+      "@/libs/*": ["libs/*"],
+      "@/data/*": ["data/*"]
     }
   }
 }

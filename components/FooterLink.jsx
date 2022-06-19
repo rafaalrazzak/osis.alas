@@ -4,7 +4,7 @@ function FooterLink({ children, href }) {
   return (
     <a
       href={href}
-      className="inline-block mb-2 text-lg text-white hover:text-opacity-100 transition text-opacity-70"
+      className="mb-2 inline-block text-lg text-white text-opacity-70 transition hover:text-opacity-100"
     >
       {children}
     </a>

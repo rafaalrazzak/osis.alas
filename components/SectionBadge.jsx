@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 function SectionBadge({ children }) {
   return (
-    <div className="font-mono mb-3 text-blue-500 uppercase tracking-wider text-sm">
+    <div className="mb-3 font-mono text-sm uppercase tracking-wider text-blue-500">
       {children}
     </div>
   );

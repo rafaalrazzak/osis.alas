@@ -28,7 +28,7 @@ export default function SignIn() {
       password: pass,
     });
     if (error) {
-      toast.error("Sepertinya ada masalah");
+      toast.error("Masalah di email / pasasword kamu");
       console.log(error.message);
     } else if (loading) {
       toast.loading("Loadingg...");
@@ -48,10 +48,10 @@ export default function SignIn() {
         <Gradient />
         <Layout>
           <form
-            className="flex flex-col max-w-md pt-24 px-12 mx-auto pb-20 items-center justify-center"
+            className="mx-auto flex max-w-md flex-col items-center justify-center px-12 pt-24 pb-20"
             onSubmit={onSubmit}
           >
-            <div className="mt-16 w-full rounded-xl bg-primary-200/30 backdrop-blur-lg p-10 shadow">
+            <div className="mt-16 w-full rounded-xl bg-primary-200/30 p-10 shadow backdrop-blur-lg">
               <p
                 tabIndex={0}
                 role="heading"
@@ -69,7 +69,7 @@ export default function SignIn() {
                   value={email}
                   type="email"
                   placeholder="Enter your email..."
-                  className="mt-2 w-full rounded-lg border placeholder:text-gray-800 bg-primary-300 py-3 pl-3 text-xs font-medium leading-none text-gray-800 focus:outline-none"
+                  className="mt-2 w-full rounded-lg border bg-primary-300 py-3 pl-3 text-xs font-medium leading-none text-gray-800 placeholder:text-gray-800 focus:outline-none"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
@@ -83,7 +83,7 @@ export default function SignIn() {
                     value={pass}
                     type={password ? "password" : "text"}
                     placeholder="Enter your password..."
-                    className="mt-2 w-full placeholder:text-gray-800 rounded-lg border bg-primary-300 py-3 pl-3 text-xs font-medium leading-none text-gray-800 focus:outline-none"
+                    className="mt-2 w-full rounded-lg border bg-primary-300 py-3 pl-3 text-xs font-medium leading-none text-gray-800 placeholder:text-gray-800 focus:outline-none"
                     onChange={(e) => setPass(e.target.value)}
                   />
                   <div className="absolute right-0 mt-2 mr-3 cursor-pointer">
@@ -105,7 +105,7 @@ export default function SignIn() {
                   variant="solidYellow"
                   type="submit"
                   aria-label="Login"
-                  className="w-full rounded-lg border bg-secondary-500 py-4 text-sm font-semibold leading-none text-primary-50 outline-none text-center justify-center flex"
+                  className="bg-secondary-500 flex w-full justify-center rounded-lg border py-4 text-center text-sm font-semibold leading-none text-primary-50 outline-none"
                 >
                   Login
                 </Button>

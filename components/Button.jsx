@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-
 import Link from "./Link";
 
 function Button({
@@ -10,6 +9,8 @@ function Button({
   wide,
   variant,
   className: addClassName,
+  leftIcon,
+  leftIconClassName,
   external,
   ...props
 }) {
@@ -28,13 +29,14 @@ function Button({
 
   const variants = {
     solidBlue: "text-white bg-blue-500 hover:bg-blue-600 border-transparent",
+    solidRed: "text-white bg-red-500 hover:bg-red-600 border-transparent",
     solidYellow:
       "text-white bg-yellow-500 hover:bg-yellow-600 border-transparent",
     lightBlue: "text-blue-900 bg-blue-300 hover:bg-blue-200 border-transparent",
     outlineBlue:
-      "text-blue-500 hover:text-white bg-transparent border-blue-500 hover:border-transparent hover:bg-blue-500",
+      "text-primary-100 hover:text-white bg-transparent border-primary-100 hover:border-transparent hover:bg-primary-600/60",
     lightOpacity:
-      "text-white bg-blue-400/30 hover:bg-blue-400/50 border-transparent",
+      "text-white bg-blue-600/30 hover:bg-blue-400/70 border-transparent",
   };
 
   const wideClassName = "flex w-full justify-center items-center";

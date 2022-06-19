@@ -5,7 +5,7 @@ export default function Background() {
       <Image
         src="/bg-gradient.png"
         layout="fill"
-        className="w-screen opacity:80 lg:opacity-60"
+        className="opacity:80 w-screen lg:opacity-60"
         objectFit="cover"
       />
       <Image

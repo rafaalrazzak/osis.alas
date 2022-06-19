@@ -5,7 +5,7 @@ function Container({ className, children, ...props }) {
   return (
     <div
       className={clsx(
-        "w-full px-6 mx-auto 2xl:w-8/12 xl:w-12/12 lg:px-10",
+        "xl:w-12/12 mx-auto px-12 lg:px-10 2xl:w-8/12",
         className
       )}
       {...props}

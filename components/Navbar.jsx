@@ -1,6 +1,8 @@
-import { Button, Container, Link } from "@components";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
+import clsx from "clsx";
+import supabase from "@/libs/supabase";
+import { Button, Container, Link } from "@components";
 
 function useIsScrollTop() {
   const [isTop, setIsTop] = useState(true);
@@ -18,32 +20,47 @@ function useIsScrollTop() {
   return isTop;
 }
 
-function Navbar({ logo, rightButtonHref, className, rightButton }) {
+export async function getServerSideProps(ctx) {
+  return {
+    props: {
+      session: supabase.auth.session(ctx),
+    },
+  };
+}
+
+function Navbar({ logo, rightButtonHref, className, rightButton, session }) {
+  const [rbtn, setRbtn] = useState();
+  useEffect(() => {
+    setRbtn(rightButton);
+  }, []);
   const isTop = useIsScrollTop();
   return (
     <nav
-      className={`fixed w-full bg-transparents h-20 items-center justify-center flex ${
-        isTop
-          ? "border-none"
-          : "bg-gradient-to-br from-teal-500/50 to-sky-400/50 border-b border-gray-200 "
-      } top-0 z-30 flex items-center justify-between backdrop-blur-lg firefox:bg-opacity-100 transition-colors duration-300 ease-in-out `}
+      className={clsx(
+        "firefox:bg-opacity-100 fixed top-0 z-30 flex h-20 w-full items-center justify-between backdrop-blur-lg transition-all duration-300 ease-in-out ",
+        isTop && "border-none bg-transparent ",
+        !isTop &&
+          "border-b border-gray-200/50 bg-gradient-to-br from-teal-500/50 to-sky-400/50 "
+      )}
     >
-      <Container>
-        <div className={"flex items-center justify-between lg:py-0 py-6"}>
+      <Container className="w-full">
+        <div className={"flex items-center justify-between py-6 lg:py-0"}>
           <div className={"w-4/12 md:w-6/12 "}>
             <Link className={"text-xl font-bold"} href="/">
               {logo}
             </Link>
           </div>
-          <div className="flex space-x-3 justify-center">
-            <Button
-              href={rightButtonHref}
-              className={
-                "text-center text-xs sm:text-sm md:text-base lg:ml-8 justify-center mt-0 "
-              }
-              size="small"
-              {...rightButton}
-            />
+          <div className="flex justify-center space-x-3">
+            {rbtn?.map((btn, key) => (
+              <Button
+                key={key}
+                className={
+                  "mt-0 justify-center text-center text-xs sm:text-sm md:text-base lg:ml-8 "
+                }
+                size="small"
+                {...btn}
+              />
+            ))}
           </div>
         </div>
       </Container>
@@ -53,12 +70,7 @@ function Navbar({ logo, rightButtonHref, className, rightButton }) {
 
 Navbar.defaultProps = {
   logo: "OSIS",
-  items: [],
-  rightButtonChildren: "Kirim Saran",
-  rightButtonHref: "/",
-  rightButtonColor: "yellow",
   className: "",
-  rightButton: {},
 };
 
 Navbar.propTypes = {
@@ -68,7 +80,7 @@ Navbar.propTypes = {
   rightButtonHref: PropTypes.string,
   rightButtonColor: PropTypes.string,
   className: PropTypes.string,
-  rightButton: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+  rightButton: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   logo: PropTypes.node,
 };
 

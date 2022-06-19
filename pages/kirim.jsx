@@ -6,8 +6,8 @@ export default function Kirim() {
       <Head>
         <title>OSIS | Kirim Saran</title>
       </Head>
-      <Gradient />
       <Layout>
+        <Gradient />
         <Container>
           <section className="mt-36 mb-24 flex justify-center">
             <Form />

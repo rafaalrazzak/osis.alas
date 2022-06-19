@@ -6,7 +6,7 @@ function HeroFeature({ title, description, icon: Icon }) {
       <Icon className="h-auto w-10 flex-shrink-0 text-white/40" />
       <div className="ml-4">
         <h2 className="text-xl font-semibold text-white">{title}</h2>
-        <p className="text-white/80 mt-2 text-lg leading-relaxed">
+        <p className="mt-2 text-lg leading-relaxed text-white/80">
           {description}
         </p>
       </div>

@@ -1,3 +1,5 @@
+import { HiOutlineAnnotation, HiInboxIn } from "react-icons/hi";
+import { Toaster } from "react-hot-toast";
 import {
   Navbar,
   Logo,
@@ -5,65 +7,71 @@ import {
   Button,
   FooterTitle,
   FooterLink,
+  Gradient,
 } from "@components";
-import { HiOutlineAnnotation } from "react-icons/hi";
-import { Toaster } from "react-hot-toast";
+import { rightButtonData } from "@/data/navbar";
+import supabase from "@/libs/supabase";
 
-export default function Layout({ children }) {
+export default function Layout({ children, noBg }) {
+  const session = supabase.auth.session();
+
   return (
-    <div>
+    <>
       <Navbar
         logo={
-          <div className="flex items-center justify-center w-full gap-2 text-base tracking-wide text-white uppercase xl:my-6">
-            <Logo clsssName="hidden md:flex" />
-            <span className="flex md:px-2">OSIS SMK Al-Asiyah</span>
+          <div className="flex w-full items-center justify-start gap-2 text-base uppercase tracking-wide text-white xl:my-6 ">
+            <Logo />
+            <span className="hidden drop-shadow-sm md:flex md:px-2">
+              OSIS SMK AL-ASIYAH
+            </span>
           </div>
         }
-        rightButton={{
-          variant: "lightBlue",
-          children: "Kirim Saran",
-          href: "/kirim",
-        }}
+        rightButton={rightButtonData}
       />
+      {!noBg && <Gradient />}
 
       <Toaster />
       {children}
-      <footer className="relative  text-white flex">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-teal-500 to-sky-500 z-[-1]" />
+      <footer className="relative flex text-white">
+        <div className="absolute top-0 left-0 z-[-1] min-h-screen w-full bg-gradient-to-br from-teal-500 to-sky-500" />
         <Container>
-          <div className="flex py-14 border-b border-white/10 mb-14 flex-wrap">
-            <div className="lg:w-6/12 md:w-7/12 w-full">
+          <div className="mb-14 flex flex-wrap border-b border-white/10 py-14">
+            <div className="w-full md:w-7/12 lg:w-6/12">
               <div className="text-2xl font-semibold text-white">
-                Sudah siap mengirim Saran kamu?
+                Sudah siap mengirim saran dan masukan kamu?
               </div>
-              <div className="text-white/60 mt-2 text-lg">
-                Kapan lagi coba kirim saran buat membangun OSIS
+              <div className="mt-2 text-lg text-white/60">
+                Kapan lagi coba kirim saran dan masukan buat membangun OSIS
               </div>
             </div>
-            <div className="ml-auto lg:w-6/12 md:w-4/12 flex lg:space-x-4 lg:justify-end justify-center items-center flex-wrap flex-col lg:flex-row space-y-4 lg:space-y-0 w-full mt-4 md:mt-0">
+            <div className="ml-auto mt-4 flex w-full flex-col flex-wrap items-center justify-center space-y-4 md:mt-0 md:w-4/12 lg:w-6/12 lg:flex-row lg:justify-end lg:space-x-4 lg:space-y-0">
               <Button
                 variant="solidYellow"
                 href="/kirim"
                 className="w-full justify-center md:w-auto"
               >
+                <HiInboxIn className="mr-2 h-auto w-6" />
                 Kirim Saran
               </Button>
-              <Button
-                variant="lightOpacity"
-                href="/saran"
-                className="w-full justify-center md:w-auto"
-              >
-                <HiOutlineAnnotation className="h-auto w-6 mr-2" /> Lihat Saran
-              </Button>
+              {session && (
+                <Button
+                  variant="lightOpacity"
+                  href="/saran"
+                  className="w-full justify-center md:w-auto"
+                >
+                  <HiOutlineAnnotation className="mr-2 h-auto w-6" /> Lihat
+                  Saran
+                </Button>
+              )}
             </div>
           </div>
-          <div className="flex flex-1 flex-wrap flex-row -mx-10 sm:justify-between">
-            <div className=" px-10 mb-10 sm:w-6/12 lg:w-3/12 lg:mb-0">
+          <div className="-mx-10 flex flex-1 flex-row flex-wrap sm:justify-between">
+            <div className=" mb-10 px-10 sm:w-6/12 lg:mb-0 lg:w-3/12">
               <div className="flex items-center">
                 <Logo />
-                <h2 className="font-bold md:ml-4">OSIS SMK Al-Asiyah</h2>
+                <h2 className="font-bold md:ml-4">OSIS SMK AL-ASIYAH</h2>
               </div>
-              <p className="mt-4 text-white/60 leading-relaxed">
+              <p className="mt-4 leading-relaxed text-white/60">
                 Design By{" "}
                 <a
                   href="https://instagram.com/rafa.ar.id"
@@ -77,7 +85,7 @@ export default function Layout({ children }) {
               <hr className="my-6 border-white/5" />
             </div>
 
-            <div className="w-full px-10 lg:w-3/12 md:w-6/12">
+            <div className="w-full px-10 md:w-6/12 lg:w-3/12">
               <FooterTitle>OSIS SMK-Al-Asiyah</FooterTitle>
               <ul className="mt-4">
                 <li>
@@ -92,7 +100,7 @@ export default function Layout({ children }) {
                 </li>
               </ul>
             </div>
-            <div className="w-full px-10 my-5 lg:w-3/12 md:w-6/12">
+            <div className="my-5 w-full px-10 md:w-6/12 lg:w-3/12">
               <FooterTitle>SMK TI AL-Asiyah</FooterTitle>
               <ul className="mt-4">
                 <li>
@@ -115,6 +123,6 @@ export default function Layout({ children }) {
           </div>
         </Container>
       </footer>
-    </div>
+    </>
   );
 }
