@@ -100,7 +100,7 @@ export default function Home() {
                     <Button
                       variant="outlineBlue"
                       href="/saran"
-                      className="mb-2 w-full w-full justify-center sm:w-8/12 md:w-4/12 lg:w-8/12"
+                      className="mb-2 w-full  justify-center sm:w-8/12 md:w-4/12 lg:w-8/12"
                     >
                       <HiOutlineAnnotation className="mr-2 h-auto w-6" />
                       Lihat Saran

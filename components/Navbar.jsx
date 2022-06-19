@@ -40,7 +40,7 @@ function Navbar({ logo, rightButtonHref, className, rightButton, session }) {
         "firefox:bg-opacity-100 fixed top-0 z-30 flex h-20 w-screen items-center justify-between transition-all duration-300 ease-in-out",
         isTop && "border-none bg-transparent ",
         !isTop &&
-          "border-b backdrop-blur-lg  border-gray-200/50 bg-gradient-to-br from-teal-500/50 to-sky-400/50 "
+          "border-b border-gray-200/50  bg-gradient-to-br from-teal-500/50 to-sky-400/50 backdrop-blur-lg "
       )}
     >
       <Container className="w-full">
