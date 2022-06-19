@@ -23,7 +23,7 @@ export default function SignIn() {
   }
   const onSubmit = async (e) => {
     e.preventDefault();
-    const { error, data } = await supabase.auth.signIn({
+    const { error, data, loading } = await supabase.auth.signIn({
       email: email,
       password: pass,
     });

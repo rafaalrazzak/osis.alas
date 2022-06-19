@@ -22,20 +22,20 @@ function Navbar({ logo, rightButtonHref, className, rightButton }) {
   const isTop = useIsScrollTop();
   return (
     <nav
-      className={`fixed  w-full h-20 items-center justify-center flex transition duration-300 ease-in-out ${
+      className={`fixed w-full bg-transparents h-20 items-center justify-center flex ${
         isTop
-          ? "border-none bg-transparent"
+          ? "border-none"
           : "bg-gradient-to-br from-teal-500/50 to-sky-400/50 border-b border-gray-200 "
-      } top-0 z-30 flex items-center justify-between backdrop-blur-lg firefox:bg-opacity-100 `}
+      } top-0 z-30 flex items-center justify-between backdrop-blur-lg firefox:bg-opacity-100 transition-colors duration-300 ease-in-out `}
     >
       <Container>
         <div className={"flex items-center justify-between lg:py-0 py-6"}>
-          <div className={"w-4/12 md:w=6/12 "}>
+          <div className={"w-4/12 md:w-6/12 "}>
             <Link className={"text-xl font-bold"} href="/">
               {logo}
             </Link>
           </div>
-          <div className="flex space-x-4 w-8/12 justify-end">
+          <div className="flex space-x-3 justify-center">
             <Button
               href={rightButtonHref}
               className={
@@ -44,14 +44,6 @@ function Navbar({ logo, rightButtonHref, className, rightButton }) {
               size="small"
               {...rightButton}
             />
-            <Button
-              variant="solidYellow"
-              size="small"
-              href="/auth/signin"
-              className="text-center text-xs sm:text-sm md:text-base lg:ml-8 justify-center mt-0"
-            >
-              Sign In
-            </Button>
           </div>
         </div>
       </Container>

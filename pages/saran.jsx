@@ -1,17 +1,12 @@
 import Head from "next/head";
+import { useState, useEffect } from "react";
 import { Card, Layout, Container, Gradient } from "@components";
-import supabase from "@/libs/supabase";
-
-export async function getStaticProps() {
-  let { data: saran, error } = await supabase.from("saran").select();
-  if (error) {
-    console.log(error);
-  }
-  return {
-    props: { saran },
-  };
-}
-export default function Menfess({ saran }) {
+import fetch from "@/libs/supabase/fetch";
+export default function Menfess() {
+  const [saran, setSaran] = useState();
+  useEffect(() => {
+    fetch().then((x) => setSaran(x));
+  }, []);
   return (
     <div>
       <Head>
@@ -22,14 +17,22 @@ export default function Menfess({ saran }) {
           <Gradient />
           <Container className="flex justify-center my-32">
             <div className="w-full flex flex-wrap md:w-1/2 md:flex-1">
-              {saran.map((saran) => (
+              {saran ? (
+                saran.map((saran) => (
+                  <Card
+                    key={saran.id}
+                    from={saran.from}
+                    message={saran.text}
+                    date={saran.created_at}
+                  />
+                ))
+              ) : (
                 <Card
-                  key={saran.id}
-                  from={saran.from}
-                  message={saran.text}
-                  date={saran.created_at}
+                  from="Server"
+                  message="Sabar yaa, lagi loading...."
+                  date={new Date()}
                 />
-              ))}
+              )}
             </div>
           </Container>
         </div>

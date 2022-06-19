@@ -13,9 +13,11 @@ import {
   HiOutlineHeart,
   HiOutlineSparkles,
   HiOutlineChatAlt2,
+  HiOutlineSpeakerphone,
   HiOutlineChatAlt,
   HiOutlineLockClosed,
 } from "react-icons/hi";
+import { MdOutlinePersonOutline } from "react-icons/md"
 import Slider from "react-slick";
 import Image from "next/image";
 import Head from "next/head";
@@ -78,8 +80,7 @@ export default function Home() {
                   Organisasi Siswa Intra Sekolah
                 </h1>
                 <p className="mx-auto mt-4 text-xl leading-relaxed  text-white/80 xl:mx-0 w-full max-w-xl ">
-                  Merupakan pesan yang ingin disampaikan kepada seseorang tanpa
-                  mengungkapkan identitas pengirim.
+                  Pusat Kegiatan Pembinaan Kesiswaan di sekolah untuk pengembangan minat, bakat serta potensi Siswa.
                 </p>
 
                 <div className="flex flex-wrap mt-10 ">
@@ -116,8 +117,8 @@ export default function Home() {
               </div>
               <div className="lg:flex-1 w-full lg:border-r border-white/10">
                 <HeroFeature
-                  title="Pesan Dikirimkan Secara Otomatis"
-                  description="Kami akan mengirimkan pesan kepada seseorang yang Anda inginkan."
+                  title="Saran Dikirimkan Secara Otomatis"
+                  description="Kami menggunakan server untuk mengirimkan saran dari publik"
                   icon={HiOutlineChatAlt}
                 />
               </div>
@@ -150,19 +151,19 @@ export default function Home() {
               <div className="lg:w-6/12 px-10 mt-20 lg:mt-0">
                 <SectionBadge>Introduction</SectionBadge>
                 <SectionTitle className="mb-8">
-                  Untuk apa kami membuat{" "}
-                  <span className="font-semibold"> Website ini?</span>
+                  Apa manfaatnya jadi{" "}
+                  <span className="font-semibold"> OSIS?</span>
                 </SectionTitle>
 
                 <IntroCard
-                  icon={HiOutlineHeart}
-                  title="Memberikan Sebuah Ruang Untuk Mengungkapkan Rasa"
-                  content="Kami membuat web ini untuk membantu kalian mengungkapkan rasa kepada orang yang ada suka"
+                  icon={MdOutlinePersonOutline}
+                  title="Melatih Jiwa Kepemimpinan Siswa"
+                  content="Jiwa kepemimpinan merupakan keniscayaan bagi generasi muda"
                 />
                 <IntroCard
-                  icon={HiOutlineSparkles}
-                  title="Menunjukan Sebuah Peluang Di Dunia TI Untuk Siswa SMK TI AL-Asiyah"
-                  content="Dunia TI begitu luas dan tak akan pernah habis untuk dijelajahi oleh siswa SMK TI AL-Asiyah"
+                  icon={HiOutlineSpeakerphone}
+                  title="Melatih Public Speaking Siswa"
+                  content="Public Speaking akan sangat-sangat berguna untuk masa depan siswa "
                 />
               </div>
             </div>

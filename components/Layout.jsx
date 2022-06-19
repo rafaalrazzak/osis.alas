@@ -14,11 +14,9 @@ export default function Layout({ children }) {
     <div>
       <Navbar
         logo={
-          <div className="flex items-center justify-center w-full text-base tracking-wide text-white uppercase xl:my-6">
-            <div className="flex items-center w-full">
-              <Logo className="hidden md:flex" />
-              <span className="md:px-2">OSIS SMK Al-Asiyah</span>
-            </div>
+          <div className="flex items-center justify-center w-full gap-2 text-base tracking-wide text-white uppercase xl:my-6">
+            <Logo clsssName="hidden md:flex" />
+            <span className="flex md:px-2">OSIS SMK Al-Asiyah</span>
           </div>
         }
         rightButton={{
