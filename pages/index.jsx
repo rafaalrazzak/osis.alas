@@ -163,7 +163,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="mt-20 px-10 lg:mt-0 lg:w-6/12">
+              <div className="mt-20 lg:mt-0 lg:w-6/12">
                 <SectionBadge className="text-white">Introduction</SectionBadge>
                 <SectionTitle className="mb-8">
                   Apa manfaatnya jadi{" "}

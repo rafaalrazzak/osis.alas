@@ -32,8 +32,8 @@ export default function Layout({ children, noBg }) {
 
       <Toaster />
       {children}
-      <footer className="relative flex text-white">
-        <div className="absolute top-0 left-0 z-[-1] min-h-screen w-full bg-gradient-to-br from-teal-500 to-sky-500" />
+      <footer className=" flex bg-gradient-to-br from-teal-500 to-sky-500 text-white">
+        
         <Container>
           <div className="mb-14 flex flex-wrap border-b border-white/10 py-14">
             <div className="w-full md:w-7/12 lg:w-6/12">
