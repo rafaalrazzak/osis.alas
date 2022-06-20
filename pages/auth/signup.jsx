@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
 import Head from "next/head";
@@ -7,13 +7,14 @@ import { Layout, Button, Gradient } from "@components";
 import supabase from "@/libs/supabase";
 
 export default function SignIn() {
-  const { push } = useRouter();
   const session = supabase.auth.session();
-  if (session) {
-    push("/");
+  const { replace } = useRouter();
+
+  if(session){
+    replace("/")
   }
 
-  const [password, setPassword] = useState(true);
+  const [isPassword, setIsPassword] = useState(true);
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
@@ -23,19 +24,18 @@ export default function SignIn() {
   }
   const onSubmit = async (e) => {
     e.preventDefault();
-    const { error, data, loading } = await supabase.auth.signUp({
+    const { error, loading } = await supabase.auth.signUp({
       email: email,
       password: pass,
     });
     if (error) {
       toast.error("Sepertinya ada masalah");
-      console.log(error.message);
     } else if (loading) {
       toast.loading("Loadingg...");
     } else {
       resetForm();
-      push("/");
-      toast.success("Kamu berhasil register");
+      replace("/");
+      toast.success("Kamu berhasil register, harap konfirmasi email kamu");
     }
   };
 
@@ -81,7 +81,7 @@ export default function SignIn() {
                   <input
                     aria-label="enter Password"
                     value={pass}
-                    type={password ? "password" : "text"}
+                    type={isPassword ? "password" : "text"}
                     placeholder="Enter your password..."
                     className="mt-2 w-full rounded-lg border bg-primary-300 py-3 pl-3 text-xs font-medium leading-none text-gray-800 placeholder:text-gray-800 focus:outline-none"
                     onChange={(e) => setPass(e.target.value)}
@@ -89,9 +89,9 @@ export default function SignIn() {
                   <div className="absolute right-0 mt-2 mr-3 cursor-pointer">
                     <button
                       type="button"
-                      onClick={() => setPassword(!password)}
+                      onClick={() => setIsPassword(!isPassword)}
                     >
-                      {password ? (
+                      {isPassword ? (
                         <FaEye className="h-3 w-4 text-primary-800" />
                       ) : (
                         <FaEyeSlash className="h-3 w-4 text-primary-800" />

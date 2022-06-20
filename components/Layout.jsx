@@ -10,6 +10,7 @@ import {
   Gradient,
 } from "@components";
 import { rightButtonData } from "@/data/navbar";
+import href from "@/data/href";
 import supabase from "@/libs/supabase";
 
 export default function Layout({ children, noBg }) {
@@ -46,7 +47,7 @@ export default function Layout({ children, noBg }) {
             <div className="ml-auto mt-4 flex w-full flex-col flex-wrap items-center justify-center space-y-4 md:mt-0 md:w-4/12 lg:w-6/12 lg:flex-row lg:justify-end lg:space-x-4 lg:space-y-0">
               <Button
                 variant="solidYellow"
-                href="/kirim"
+                href={href.kirim}
                 className="w-full justify-center md:w-auto"
               >
                 <HiInboxIn className="mr-2 h-auto w-6" />
@@ -55,7 +56,7 @@ export default function Layout({ children, noBg }) {
               {session && (
                 <Button
                   variant="lightOpacity"
-                  href="/saran"
+                  href={href.saran}
                   className="w-full justify-center md:w-auto"
                 >
                   <HiOutlineAnnotation className="mr-2 h-auto w-6" /> Lihat

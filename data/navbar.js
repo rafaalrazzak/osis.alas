@@ -1,19 +1,20 @@
 import supabase from "@/libs/supabase";
+import href from "./href";
 
 const kirim = {
   variant: "solidYellow",
   children: "Kirim Saran",
-  href: "/kirim",
+  href: href.kirim,
 };
 const signin = {
   variant: "solidBlue",
   children: "Sign In",
-  href: "/auth/signin",
+  href: href.signin,
 };
 const signout = {
   variant: "solidRed",
   children: "Sign Out",
-  href: "/auth/signout",
+  href: href.signout,
 };
 
 export function rightButtonData() {
