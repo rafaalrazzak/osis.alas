@@ -1,15 +1,21 @@
-import supabase from "@/libs/supabase";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import toast from "react-hot-toast";
+import supabase from "@/libs/supabase";
 
 export default function SignOut() {
   const session = supabase.auth.session();
-  const { replace } = useRouter();
-  if (!session) {
-    replace("/");
-  } else {
-    supabase.auth.signOut();
+  const { replace, push } = useRouter();
+
+  useEffect(() => {
+    if(!session){
+      replace("/")
+    }
+  }, [])
+
+  if (session) {
+     supabase.auth.signOut();
     replace("/");
     toast.success("Berhasil keluar");
   }
