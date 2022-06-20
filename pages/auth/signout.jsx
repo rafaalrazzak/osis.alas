@@ -1,4 +1,5 @@
 import supabase from "@/libs/supabase";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import toast from "react-hot-toast";
@@ -10,9 +11,12 @@ export default function SignOut() {
     supabase.auth.signOut();
     replace("/");
     toast.success("Berhasil keluar");
-  } else {
-    replace("/");
   }
+
+  useEffect(() => {
+    !session ?? replace("/");
+  }, []);
+  
   return (
     <Head>
       <title>OSIS | Sign Out</title>
