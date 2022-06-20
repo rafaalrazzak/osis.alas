@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { FcSms } from "react-icons/fc";
+import { FiSend } from "react-icons/fi";
+import Button from "./Button";
 import { SubmitPost } from "@/libs/submit";
 export default function Form() {
   const [formData, setFormData] = useState({
@@ -71,7 +73,7 @@ export default function Form() {
                 Dari
               </label>
               <input
-                className="text-grey-darker bg-grey-lighter mb-3 block w-full appearance-none rounded bg-white/70 py-3  px-4 text-sm outline-0 transition-all duration-500 focus:ring focus:ring-sky-600/30 disabled:bg-blue-300/30"
+                className="text-grey-darker bg-grey-lighter border-grey-lighter mb-3 block w-full appearance-none rounded border bg-white/70 py-3  px-4 text-sm outline-0 transition-all duration-500 focus:ring focus:ring-sky-600/30 disabled:bg-blue-300/30"
                 id="from"
                 name="from"
                 type="text"
@@ -124,12 +126,15 @@ export default function Form() {
             </div>
           </div>
           <div className="mb-6 justify-end md:flex">
-            <button
-              className="rounded-md border-transparent bg-blue-300 px-5 py-2 text-sm  text-blue-900 transition-all  duration-300 hover:bg-blue-200"
+            <Button
+              size="small"
+              className="flex items-center gap-2 "
+              variant="solidYellow"
               type="submit"
             >
+              <FiSend />
               Kirim
-            </button>
+            </Button>
           </div>
         </form>
       </div>
