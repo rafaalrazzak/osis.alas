@@ -66,7 +66,7 @@ export default function Layout({ children, noBg }) {
           </div>
           <div className="-mx-10 flex flex-1 flex-row flex-wrap sm:justify-between">
             <div className=" mb-10 px-10 sm:w-6/12 lg:mb-0 lg:w-3/12">
-              <div className="flex items-center">
+              <div className="flex items-center gap-2 ">
                 <Logo />
                 <h2 className="font-bold md:ml-4">OSIS SMK AL-ASIYAH</h2>
               </div>
