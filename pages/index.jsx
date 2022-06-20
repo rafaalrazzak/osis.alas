@@ -21,6 +21,7 @@ import {
   TestimonialCard,
 } from "@components";
 import supabase from "@/libs/supabase";
+import href from "@/data/href";
 
 export default function Home() {
   const session = supabase.auth.session();
@@ -88,7 +89,7 @@ export default function Home() {
                 <div className="mt-10 flex w-full flex-wrap justify-center gap-4 md:flex-nowrap lg:justify-start">
                   <Button
                     variant="solidYellow"
-                    href="/kirim"
+                    href={href.kirim}
                     className={`mb-2 w-full justify-center sm:w-8/12 md:w-4/12 lg:w-8/12 ${
                       session ?? "w-full sm:w-8/12 md:w-4/12 lg:w-8/12"
                     }`}
@@ -99,7 +100,7 @@ export default function Home() {
                   {session && (
                     <Button
                       variant="outlineBlue"
-                      href="/saran"
+                      href={href.saran}
                       className="mb-2 w-full  justify-center sm:w-8/12 md:w-4/12 lg:w-8/12"
                     >
                       <HiOutlineAnnotation className="mr-2 h-auto w-6" />
