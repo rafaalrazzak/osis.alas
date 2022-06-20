@@ -11,8 +11,9 @@ export default function SignOut() {
     supabase.auth.signOut();
     replace("/");
     toast.success("Berhasil keluar");
+  } else {
+    replace(href.signin);
   }
-  replace(href.signin);
   return (
     <Head>
       <title>OSIS | Sign Out</title>
