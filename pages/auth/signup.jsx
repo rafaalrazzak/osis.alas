@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
 import Head from "next/head";
@@ -9,9 +9,11 @@ import supabase from "@/libs/supabase";
 export default function SignIn() {
   const session = supabase.auth.session();
   const { replace } = useRouter();
-  useEffect(() => {
-    session ?? replace("/");
-  }, []);
+
+  if(session){
+    replace("/")
+  }
+
   const [isPassword, setIsPassword] = useState(true);
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
