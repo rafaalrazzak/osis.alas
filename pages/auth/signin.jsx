@@ -1,22 +1,29 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Layout, Button, Gradient } from "@components";
 import supabase from "@/libs/supabase";
 
 export default function SignIn() {
+  const session = supabase.auth.session();
+  const { replace } = useRouter();
+
+  useEffect(() => {
+    session ?? replace("/");
+  }, []);
+
   const [password, setPassword] = useState(true);
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-
   function resetForm() {
     setEmail("");
     setPass("");
   }
   const onSubmit = async (e) => {
     e.preventDefault();
-    const { error, data, loading } = await supabase.auth.signIn({
+    const { error, loading } = await supabase.auth.signIn({
       email: email,
       password: pass,
     });
@@ -27,6 +34,7 @@ export default function SignIn() {
       toast.loading("Loadingg...");
     } else {
       resetForm();
+      replace("/");
       toast.success("Kamu berhasil login");
     }
   };

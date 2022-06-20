@@ -5,10 +5,10 @@ import toast from "react-hot-toast";
 
 export default function SignOut() {
   const session = supabase.auth.session();
-  const { push } = useRouter();
+  const { replace } = useRouter();
   if (session) {
     supabase.auth.signOut();
-    push("/");
+    replace("/");
     toast.success("Berhasil keluar");
   }
   return (

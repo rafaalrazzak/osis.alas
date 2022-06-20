@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server";
 import supabase from "@/libs/supabase";
-
-export default function middleware() {
+import href from "@/data/href";
+export default function middleware(req) {
   const session = supabase.auth.session();
+  const url = req.nextUrl.clone();
+  url.pathname = href.signin;
   if (!session) {
-    return NextResponse.redirect("/auth/signin");
+    return NextResponse.rewrite(url);
   }
 }
