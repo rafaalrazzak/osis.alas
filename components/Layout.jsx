@@ -19,7 +19,7 @@ export default function Layout({ children, noBg }) {
     <>
       <Navbar
         logo={
-          <div className="flex w-full items-center justify-start md:gap-2 text-base uppercase tracking-wide text-white xl:my-6 ">
+          <div className="flex w-full items-center justify-start text-base uppercase tracking-wide text-white md:gap-2 xl:my-6 ">
             <Logo />
             <span className="hidden drop-shadow-sm md:flex md:px-2">
               OSIS SMK AL-ASIYAH
@@ -33,7 +33,6 @@ export default function Layout({ children, noBg }) {
       <Toaster />
       {children}
       <footer className=" flex bg-gradient-to-br from-teal-500 to-sky-500 text-white">
-        
         <Container>
           <div className="mb-14 flex flex-wrap border-b border-white/10 py-14">
             <div className="w-full md:w-7/12 lg:w-6/12">
