@@ -4,15 +4,14 @@ import supabase from "./supabase";
 export const SubmitPost = async (from, message) => {
   const { data, error, loading } = await supabase
     .from("saran")
-    .insert([{ from: from, text: message }]);
+    .insert({ from: from, text: message }, { returning: "minimal" });
 
   if (error) {
-    toast.error("Pesanmu gagal dikirim");
-    console.log(error.message);
+    toast.error("Saran kamu gagal dikirim");
   } else if (loading) {
-    toast.loading("Pengiriman pesan...");
+    toast.loading("Pengiriman saran...");
   } else {
-    toast.success("Pesanmu berhasil dikirim");
+    toast.success("Saran kamu berhasil dikirim");
   }
 
   return !error ? data : null;
