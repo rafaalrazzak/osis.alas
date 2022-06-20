@@ -19,7 +19,7 @@ export default function Layout({ children, noBg }) {
     <>
       <Navbar
         logo={
-          <div className="flex w-full items-center justify-start gap-2 text-base uppercase tracking-wide text-white xl:my-6 ">
+          <div className="flex w-full items-center justify-start md:gap-2 text-base uppercase tracking-wide text-white xl:my-6 ">
             <Logo />
             <span className="hidden drop-shadow-sm md:flex md:px-2">
               OSIS SMK AL-ASIYAH

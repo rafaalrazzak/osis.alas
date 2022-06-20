@@ -20,15 +20,7 @@ function useIsScrollTop() {
   return isTop;
 }
 
-export async function getServerSideProps(ctx) {
-  return {
-    props: {
-      session: supabase.auth.session(ctx),
-    },
-  };
-}
-
-function Navbar({ logo, rightButtonHref, className, rightButton, session }) {
+function Navbar({ logo, rightButtonHref, className, rightButton }) {
   const [rbtn, setRbtn] = useState();
   useEffect(() => {
     setRbtn(rightButton);
@@ -45,7 +37,7 @@ function Navbar({ logo, rightButtonHref, className, rightButton, session }) {
     >
       <Container className="w-full">
         <div className={"flex items-center justify-between py-6 lg:py-0"}>
-          <div className={"w-4/12 md:w-6/12 "}>
+          <div className={"w-2/12 md:w-4/12 "}>
             <Link className={"text-xl font-bold"} href="/">
               {logo}
             </Link>

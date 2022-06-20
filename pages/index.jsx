@@ -146,7 +146,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center">
               <div className="w-full px-4 lg:mt-10 lg:w-6/12 lg:px-10">
                 <div className="relative w-full sm:p-10">
-                  <div className="absolute -top-6 left-5 z-[-1] h-64 w-64 bg-blue-100 shadow-lg sm:top-5 sm:left-[5px] lg:flex" />
+                  <div className="absolute -top-12 left-5 z-[-1] h-64 w-64 bg-blue-100 shadow-lg sm:top-5 sm:left-[5px] lg:flex" />
                   <div className="absolute bottom-[-35px] right-[5px] z-[-1] h-64 w-64 rounded-full bg-blue-500 shadow-lg lg:flex" />
                   <div className="flex w-full items-center justify-center rounded-lg bg-[#FFB1A3] shadow-xl">
                     <Image
@@ -234,7 +234,7 @@ export default function Home() {
             </div>
             <Slider className="mt-16" {...settings}>
               <TestimonialCard
-                testimoni={'"Kata Ilham Udah Tamat Gamenya Guys "'}
+                testimoni={'"Kita resmi menamatkan game membuat web"'}
                 avatar="https://images.unsplash.com/photo-1605462863863-10d9e47e15ee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
                 name="Ilham Kurniawan"
                 job="Langganan Bang Windah"
@@ -246,7 +246,7 @@ export default function Home() {
                 job="Youtuber Gaming"
               />
               <TestimonialCard
-                testimoni={'"Gammer ganteng idaman"'}
+                testimoni={'"Gamer ganteng idaman"'}
                 avatar="https://images.unsplash.com/photo-1599566147214-ce487862ea4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
                 name="Reza Pardede"
                 job="Yotuber No 1"

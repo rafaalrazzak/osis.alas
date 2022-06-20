@@ -1,11 +1,11 @@
 import Image from "next/image";
 export default function Logo({ className }) {
-  const Img = ({ src }) => {
-    return <Image src={src} alt="Logo" width={50} height={50} />;
+  const Img = ( {...props} ) => {
+    return <Image width={50} height={50} {...props} />;
   };
   return (
-    <div className={`gap-x-1 px-2 ${className}`}>
-      <Img src="/static/logo-osis.png" />
+    <div className={`md:gap-2 ${className}`}>
+      <Img src="/static/logo-osis.png" alt="OSIS SMK AL-ASIYAH" />
     </div>
   );
 }
