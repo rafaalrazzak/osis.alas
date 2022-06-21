@@ -1,14 +1,20 @@
 import Head from "next/head";
+import { useRouter } from "next/router"
 import { useState, useEffect } from "react";
 import { Card, Layout, Container, Gradient } from "@components";
 import supabase from "@/libs/supabase";
 import fetch from "@/libs/supabase/fetch";
-export default function Menfess() {
+import href from "@/data/href"
+export default function Saran() {
   const session = supabase.auth.session();
+  const { push } = useRouter()
 
   const [saran, setSaran] = useState();
   useEffect(() => {
-    if (session) {
+    if(!session){
+      push(href.signin)
+      }
+    else{
       fetch().then((x) => setSaran(x));
     }
   }, []);
