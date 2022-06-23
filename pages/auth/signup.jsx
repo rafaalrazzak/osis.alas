@@ -19,12 +19,13 @@ export default function SignIn() {
   }
 
   const [isPassword, setIsPassword] = useState(true);
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    signup(email, pass);
+    signup(username, email, pass);
   };
 
   return (
@@ -36,6 +37,13 @@ export default function SignIn() {
         <Gradient />
         <Layout>
           <Form name="Sign up your acccount" onSubmit={onSubmit}>
+            <Input
+              name="Username"
+              aria-label="enter your username"
+              value={username}
+              placeholder="Enter your username..."
+              onChange={(e) => setUsername(e.target.value)}
+            />
             <Input
               name="Email"
               aria-label="enter email adress"

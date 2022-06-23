@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
-import supabase  from '@/libs/supabase';
-export default function middleware(req, res, next) {
-  //get session from supabase session
-  // const session = 
+export default function middleware(req) {
+  const cookies = req.cookies;
+  const token = cookies["sb-access-token"];
+  const url = req.nextUrl.clone();
+  url.pathname = "/";
+  if (!token) return NextResponse.redirect(url);
 }
