@@ -125,7 +125,7 @@ export default function Form() {
           <div className="mb-6 justify-end md:flex">
             <Button
               size="small"
-              className="flex items-center gap-2 "
+              className="flex w-full justify-center items-center gap-2 "
               variant="solidYellow"
               type="submit"
             >

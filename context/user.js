@@ -18,10 +18,9 @@ const Provider = ({ children }) => {
       if (sessionUser) {
         const { data: profile } = await supabase
           .from("users")
-          .select("*")
-          .eq("user_id", sessionUser.id)
+          .select()
+          .eq("email", sessionUser.email)
           .single();
-
         setUser({
           ...sessionUser,
           ...profile,
@@ -45,8 +44,8 @@ const Provider = ({ children }) => {
     });
   }, [user]);
 
-  async function signup(email, password) {
-    const { error } = await supabase.auth.signIn({
+  async function signup(username, email, password) {
+    const { error } = await supabase.auth.signUp({
       email: email,
       password: password,
     });
@@ -56,6 +55,14 @@ const Provider = ({ children }) => {
       router.push("/");
       toast.success("Kamu berhasil register, harap konfirmasi email kamu");
     }
+
+    await supabase.from("users").insert(
+      {
+        username,
+        email,
+      },
+      { returning: "minimal" }
+    );
   }
 
   async function signin(email, password) {
@@ -78,26 +85,29 @@ const Provider = ({ children }) => {
   }
 
   async function resetPass(email) {
-    const { error } = await await supabase.auth.api.resetPasswordForEmail(
-      email, {
-        redirectTo: "/dashboard/users/reset-password"
-      }
+    const { error } = await supabase.auth.api.resetPasswordForEmail(
+      email,
+      "https://osis-alas.vercel.app/dashboard/account/reset-password"
     );
     if (error) {
       toast.error("Terjadi masalah");
       console.log(error);
     } else {
       toast.success("Harap cek email kamu");
+      router.push("/");
     }
   }
 
   async function updatePass(token, password) {
-    const { error } = await supabase.auth.api.resetPassword(token, password);
+    const { error } = await supabase.auth.api.updateUser(token, {
+      password,
+    });
     if (error) {
       toast.error("Terjadi masalah");
     }
     toast.success("Password kamu berhasil diubah");
   }
+
   const exposed = {
     user,
     signup,

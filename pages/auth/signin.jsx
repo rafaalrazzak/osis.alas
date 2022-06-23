@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Head from "next/head";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Layout, Gradient } from "@components";
+import { Layout, Gradient, Link } from "@components";
 import Form from "@/componentsAuth/Form";
 import Input from "@/componentsAuth/Input";
 import Button from "@/componentsAuth/Button";
 import { useUser } from "@/context/user";
+import href from "@/data/href";
 
 export async function getServerSideProps(ctx) {
   const cookie = ctx.req.headers.cookie;
@@ -71,6 +72,9 @@ export default function SignIn() {
                 )}
               </button>
             </Input>
+            <Link href={href.forgot_password}>
+              <a className="text-primary-500 text-sm underline mt-2 flex">Forgot password?</a>
+            </Link>
             <Button name="Sign In" />
           </Form>
         </Layout>

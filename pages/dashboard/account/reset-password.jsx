@@ -7,6 +7,7 @@ import { Layout, Gradient } from "@components";
 import Form from "@/componentsAuth/Form";
 import Input from "@/componentsAuth/Input";
 import Button from "@/componentsAuth/Button";
+import { useUser } from "@/context/user";
 
 function Validation() {
   return (
@@ -19,39 +20,44 @@ function Validation() {
   );
 }
 
-export default function ResetUserPassword() {
+export function getServerSideProps(ctx) {
+  const cookie = ctx.req.headers.cookie;
+  //cookie parse
+  const token = cookie?
+    .split(";")
+    .map((param) => param.split("="));
+  for (let i = 0; i < token?.length; i++) {
+    if (token[i][0] === "sb-access-token") {
+      return {
+        props: {
+          token: token[i][1],
+        },
+      };
+    }
+  }
+  return {
+    props: {},
+  };
+}
+
+export default function ResetUserPassword({ token }) {
+  const { push } = useRouter();
   const [pass, setPass] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
   const [isPassword, setIsPassword] = useState(true);
   const [isConfirmPassword, setIsConfirmPassword] = useState(true);
   const [isNotSame, setIsNotSame] = useState(false);
-  const [hash, setHash] = useState("");
   const checkPass = () => setIsNotSame(pass !== confirmPass);
-  const router = useRouter();
+  const { updatePass } = useUser();
   useEffect(() => {
     checkPass();
   }, [pass, confirmPass]);
 
-  useEffect(() => {
-    setHash(window.location.hash);
-  }, []);
-
   function onSubmit(e) {
     e.preventDefault();
-    try {
-      if (checkPass === true) {
-        if (!hash) {
-          return toast.error("Sepertinya terjadi kesalahan");
-        } else {
-          const hashArr = hash
-            .substring(1)
-            .split("&")
-            .map((param) => param.split("="));
-          console.log(hashArr);
-        }
-      }
-    } catch (error) {
-      toast.error("Sepertinya terjadi kesalahan");
+    if (pass === confirmPass) {
+      updatePass(token, pass);
+      push("/");
     }
   }
 

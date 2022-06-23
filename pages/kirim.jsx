@@ -9,7 +9,7 @@ export default function Kirim() {
       <Layout>
         <Gradient />
         <Container>
-          <section className="mt-36 mb-24 flex justify-center">
+          <section className="mt-36 mb-24 max-w-lg mx-auto flex justify-center">
             <Form />
           </section>
         </Container>
