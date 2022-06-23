@@ -11,10 +11,10 @@ export default function Saran() {
 
   const [saran, setSaran] = useState();
   useEffect(() => {
-    if(!session){
-      push(href.signin)
-      }
-    else{
+    // if(!session){
+    //   push(href.signin)
+    //   }
+    if(session){
       fetch().then((x) => setSaran(x));
     }
   }, []);

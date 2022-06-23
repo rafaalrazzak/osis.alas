@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FcSms } from "react-icons/fc";
 import { FiSend } from "react-icons/fi";
 import Button from "./Button";
+import Dots from "./Dots";
 import { SubmitPost } from "@/libs/submit";
 export default function Form() {
   const [formData, setFormData] = useState({
@@ -49,13 +50,9 @@ export default function Form() {
     <div className="w-full sm:w-8/12">
       <div className="relative flex w-full flex-col rounded-lg bg-white px-8 pt-6 pb-8 shadow-md ">
         <div className="flex-0 whitespace-no-wrap relative -my-6 -mx-8 flex items-center rounded-t-lg bg-gray-200 text-gray-400">
-          <div className="px-3 py-2">
-            <i className="mx-1 inline-block h-3 w-3 rounded-full bg-red-400"></i>
-            <i className="mx-1 inline-block h-3 w-3 rounded-full bg-yellow-400"></i>
-            <i className="mx-1 inline-block h-3 w-3 rounded-full bg-green-400"></i>
-          </div>
+          <Dots className="flex gap-2 px-3 py-2" />
           <div className="absolute top-1 left-20 mb-6 flex items-center justify-center self-center rounded-t bg-white px-3 py-3 text-center text-xs sm:text-sm">
-            <div className="-mt-1 flex items-center">
+            <div className="-mt-2 flex items-center">
               <FcSms />
               <p className="mx-3 flex items-center justify-center">
                 Kirim Saran

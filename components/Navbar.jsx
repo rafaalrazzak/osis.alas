@@ -72,7 +72,7 @@ Navbar.propTypes = {
   rightButtonHref: PropTypes.string,
   rightButtonColor: PropTypes.string,
   className: PropTypes.string,
-  rightButton: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  rightButton: PropTypes.any,
   logo: PropTypes.node,
 };
 

@@ -4,7 +4,9 @@
     "paths": {
       "@components": ["components/index.js"],
       "@/libs/*": ["libs/*"],
-      "@/data/*": ["data/*"]
+      "@/data/*": ["data/*"],
+      "@/context/*": ["context/*"],
+      "@/componentsAuth/*": ["components/auth/*"],
     }
   }
 }
