@@ -85,17 +85,16 @@ const Provider = ({ children }) => {
   }
 
   async function resetPass(email) {
-    const { error } = await await supabase.auth.api.resetPasswordForEmail(
+    const { error } = await supabase.auth.api.resetPasswordForEmail(
       email,
-      {
-        redirectTo: "https:osis-alas.vercel.app/dashboard/users/reset-password",
-      }
+      "https://osis-alas.vercel.app/dashboard/account/reset-password"
     );
     if (error) {
       toast.error("Terjadi masalah");
       console.log(error);
     } else {
       toast.success("Harap cek email kamu");
+      router.push("/");
     }
   }
 

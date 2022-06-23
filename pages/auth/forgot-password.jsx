@@ -6,7 +6,7 @@ import Input from "@/componentsAuth/Input";
 import Button from "@/componentsAuth/Button";
 import { useUser } from "@/context/user";
 
-export default function ResetPassword() {
+export default function ForgotPassword() {
   const [email, setEmail] = useState("");
   const { resetPass } = useUser();
 
@@ -19,12 +19,12 @@ export default function ResetPassword() {
   return (
     <>
       <Head>
-        <title>OSIS | Reset Password</title>
+        <title>OSIS | Forgot Password</title>
       </Head>
       <div className="relative">
         <Gradient />
         <Layout>
-          <Form name="Reset Password" onSubmit={onSubmit}>
+          <Form name="Forgot Password" onSubmit={onSubmit}>
             <Input
               name="Email"
               placeholder="Enter your email"
