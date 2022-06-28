@@ -4,28 +4,32 @@ import { Card, Layout, Gradient } from "@components";
 import fetch from "@/libs/supabase/fetch";
 
 export async function getServerSideProps(ctx) {
-  const cookies = ctx.req.headers.cookie
-  const sbToken = cookies["sb-access-token"]
-  console.log(sbToken);
-  if (!sbToken) {
+  const token = ctx.req.headers.cookie?
+  .split(";")?
+  .find((c) => c.includes("sb-access-token"))?
+  .split("=")[1]
+
+  if (!token) {
     ctx.res.writeHead(302, {
       Location: "/",
     });
     ctx.res.end();
   }
+  
+  
 
   return {
-    props: { },
+    props: { token },
   };
 }
 
-export default function Saran({  }) {
-  // const [saran, setSaran] = useState();
-  // useEffect(() => {
-  //   if (sbToken) {
-  //     fetch().then((x) => setSaran(x));
-  //   }
-  // }, []);
+export default function Saran({ token }) {
+  const [saran, setSaran] = useState();
+  useEffect(() => {
+    if (token) {
+      fetch().then((x) => setSaran(x));
+    }
+  }, []);
   return (
     <div>
       <Head>
