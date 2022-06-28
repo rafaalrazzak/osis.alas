@@ -9,13 +9,19 @@ import { useUser } from "@/context/user";
 import href from "@/data/href";
 
 export async function getServerSideProps(ctx) {
-  const cookie = ctx.req.headers.cookie;
-  if (cookie) {
+  const token = ctx.req.headers.cookie?
+  .split(";")?
+  .find((c) => c.includes("sb-access-token"))?
+  .split("=")[1]
+  
+  if (token) {
     ctx.res.writeHead(302, {
       Location: "/",
     });
     ctx.res.end();
   }
+
+
 
   return {
     props: {},

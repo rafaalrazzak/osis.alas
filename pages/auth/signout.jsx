@@ -6,8 +6,12 @@ import supabase from "@/libs/supabase";
 import { useUser } from "@/context/user";
 
 export async function getServerSideProps(ctx) {
-  const cookie = ctx.req.headers.cookie;
-  if (!cookie) {
+  const token = ctx.req.headers.cookie?
+  .split(";")?
+  .find((c) => c.includes("sb-access-token"))?
+  .split("=")[1]
+  
+  if (!token) {
     ctx.res.writeHead(302, {
       Location: "/",
     });
