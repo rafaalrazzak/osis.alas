@@ -1,22 +1,29 @@
 import { useState } from "react";
-import { useRouter } from "next/router";
 import Head from "next/head";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Layout, Gradient } from "@components";
 import Form from "@/componentsAuth/Form";
 import Input from "@/componentsAuth/Input";
 import Button from "@/componentsAuth/Button";
-import supabase from "@/libs/supabase";
 import { useUser } from "@/context/user";
 
-export default function SignIn() {
-  const session = supabase.auth.session();
-  const { replace } = useRouter();
-  const { signup } = useUser();
 
-  if(session){
-    replace("/")
+export async function getServerSideProps(ctx) {
+  const sbToken = ctx.req.headers.cookie["sb-access-token"];
+  if (sbToken) {
+    ctx.res.writeHead(302, {
+      Location: "/",
+    });
+    ctx.res.end();
   }
+
+  return {
+    props: {},
+  };
+}
+
+export default function SignIn() {
+  const { signup } = useUser();
 
   const [isPassword, setIsPassword] = useState(true);
   const [username, setUsername] = useState("");

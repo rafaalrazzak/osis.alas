@@ -1,23 +1,31 @@
 import Head from "next/head";
-import { useRouter } from "next/router"
 import { useState, useEffect } from "react";
-import { Card, Layout, Container, Gradient } from "@components";
-import supabase from "@/libs/supabase";
+import { Card, Layout, Gradient } from "@components";
 import fetch from "@/libs/supabase/fetch";
-import href from "@/data/href"
-export default function Saran() {
-  const session = supabase.auth.session();
-  const { push } = useRouter()
 
-  const [saran, setSaran] = useState();
-  useEffect(() => {
-    // if(!session){
-    //   push(href.signin)
-    //   }
-    if(session){
-      fetch().then((x) => setSaran(x));
-    }
-  }, []);
+export async function getServerSideProps(ctx) {
+  const cookies = ctx.req.headers.cookie
+  const sbToken = cookies["sb-access-token"]
+  console.log(sbToken);
+  if (!sbToken) {
+    ctx.res.writeHead(302, {
+      Location: "/",
+    });
+    ctx.res.end();
+  }
+
+  return {
+    props: { },
+  };
+}
+
+export default function Saran({  }) {
+  // const [saran, setSaran] = useState();
+  // useEffect(() => {
+  //   if (sbToken) {
+  //     fetch().then((x) => setSaran(x));
+  //   }
+  // }, []);
   return (
     <div>
       <Head>
