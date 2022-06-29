@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Layout, Gradient, Link } from "@components";
 import Form from "@/componentsAuth/Form";
@@ -8,27 +9,9 @@ import Button from "@/componentsAuth/Button";
 import { useUser } from "@/context/user";
 import href from "@/data/href";
 
-export async function getServerSideProps(ctx) {
-  const token = ctx.req.headers.cookie
-    ?.split(";")
-    .find((c) => c.includes("sb-access-token"))
-    .split("=")[1];
-
-  if (token) {
-    ctx.res.writeHead(302, {
-      Location: "/",
-    });
-    ctx.res.end();
-  }
-
-  return {
-    props: {},
-  };
-}
-
 export default function SignIn() {
-  const { signin } = useUser();
-
+  const { isAuth, signin } = useUser();
+  const router = useRouter();
   const [isPassword, setIsPassword] = useState(true);
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
@@ -37,6 +20,8 @@ export default function SignIn() {
     e.preventDefault();
     signin(email, pass);
   };
+
+  isAuth()
 
   return (
     <>

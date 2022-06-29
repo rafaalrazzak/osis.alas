@@ -44,7 +44,22 @@ const Provider = ({ children }) => {
     });
   }, [user]);
 
-  async function requireAuth() {
+  function session() {
+    const [authSession, setAuthSession] = useState(null);
+    supabase.auth.onAuthStateChange((evn, session) => {
+      setAuthSession(session);
+    });
+    return authSession;
+  }
+
+  function isAuth(){
+  
+    supabase.auth.onAuthStateChange((evn, session) => {
+      if(session) router.push("/")
+    })
+  }
+
+  function requireAuth() {
     const { user } = useUser();
 
     useEffect(() => {
@@ -95,10 +110,9 @@ const Provider = ({ children }) => {
   }
 
   async function resetPass(email) {
-    const { error } = await supabase.auth.api.resetPasswordForEmail(
-      email,
-      "/dashboard/account/reset-password"
-    );
+    const { error } = await supabase.auth.api.resetPasswordForEmail(email, {
+      redirectTo: "/dashboard/account/reset-password",
+    });
     if (error) {
       toast.error("Terjadi masalah");
       console.log(error);
@@ -119,6 +133,8 @@ const Provider = ({ children }) => {
   }
 
   const exposed = {
+    session,
+    isAuth,
     requireAuth,
     user,
     signup,
