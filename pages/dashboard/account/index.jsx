@@ -5,7 +5,7 @@ export default function Acoount(){
     return (
       <div className="min-h-screen flex justify-center items-center">
         <p className="text center flex justify-center">
-          Hello, <span className="font-semibold text-primary-600">{user?.username}</span>{" "}
+          Hello, <span className="font-semibold text-primary-600">{user?.username || user?.email}</span>{" "}
         </p>
       </div>
     ); 

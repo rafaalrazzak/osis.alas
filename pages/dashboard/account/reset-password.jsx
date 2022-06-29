@@ -36,7 +36,7 @@ export function getServerSideProps(ctx) {
     }
   }
   return {
-    props: {},
+    props: {token},
   };
 }
 

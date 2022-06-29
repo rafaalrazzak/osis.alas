@@ -1,4 +1,4 @@
-import supabase from "@/libs/supabase";
+import { useUser } from "@/context/user";
 import href from "./href";
 
 const kirim = {
@@ -18,8 +18,8 @@ const signout = {
 };
 
 export function rightButtonData() {
-  const session = supabase.auth.session();
-  const btnSession = session ? signout : signin;
+  const { user } = useUser();
+  const btnSession = user ? signout : signin;
 
   return [kirim, btnSession];
 }

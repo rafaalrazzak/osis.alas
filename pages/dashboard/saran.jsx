@@ -1,32 +1,15 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import { Card, Layout, Gradient } from "@components";
+import { useUser } from "@/context/user";
 import fetch from "@/libs/supabase/fetch";
 
-export async function getServerSideProps(ctx) {
-  const token = ctx.req.headers.cookie?
-  .split(";")?
-  .find((c) => c.includes("sb-access-token"))?
-  .split("=")[1]
-
-  if (!token) {
-    ctx.res.writeHead(302, {
-      Location: "/",
-    });
-    ctx.res.end();
-  }
-  
-  
-
-  return {
-    props: { token },
-  };
-}
-
-export default function Saran({ token }) {
+export default function Saran() {
+  const { user, requireAuth } = useUser();
+  requireAuth();
   const [saran, setSaran] = useState();
   useEffect(() => {
-    if (token) {
+    if (user) {
       fetch().then((x) => setSaran(x));
     }
   }, []);

@@ -1,7 +1,5 @@
 import {
   HiOutlineSpeakerphone,
-  HiOutlineChatAlt,
-  HiOutlineLockClosed,
   HiInboxIn,
   HiOutlineAnnotation,
 } from "react-icons/hi";
@@ -20,11 +18,11 @@ import {
   SectionTitle,
   TestimonialCard,
 } from "@components";
-import supabase from "@/libs/supabase";
+import { useUser } from "@/context/user";
 import href from "@/data/href";
 
 export default function Home() {
-  const session = supabase.auth.session();
+  const { user } = useUser();
 
   const convertImage = ({ w, h, src }) => `
        <Image src="${src}" width="${w}" height="${h}" quality="1"/>
@@ -91,13 +89,13 @@ export default function Home() {
                     variant="solidYellow"
                     href={href.kirim}
                     className={`mb-2 w-full justify-center sm:w-8/12 md:w-4/12 lg:w-8/12 ${
-                      session ?? "w-full sm:w-8/12 md:w-4/12 lg:w-8/12"
+                      user ?? "w-full sm:w-8/12 md:w-4/12 lg:w-8/12"
                     }`}
                   >
                     <HiInboxIn className="mr-2 h-auto w-6" />
                     Kirim Saran
                   </Button>
-                  {session && (
+                  {user && (
                     <Button
                       variant="outlineBlue"
                       href={href.saran}
