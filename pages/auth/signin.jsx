@@ -9,19 +9,17 @@ import { useUser } from "@/context/user";
 import href from "@/data/href";
 
 export async function getServerSideProps(ctx) {
-  const token = ctx.req.headers.cookie?
-  .split(";")?
-  .find((c) => c.includes("sb-access-token"))?
-  .split("=")[1]
-  
+  const token = ctx.req.headers.cookie
+    ?.split(";")
+    .find((c) => c.includes("sb-access-token"))
+    .split("=")[1];
+
   if (token) {
     ctx.res.writeHead(302, {
       Location: "/",
     });
     ctx.res.end();
   }
-
-
 
   return {
     props: {},
@@ -79,7 +77,9 @@ export default function SignIn() {
               </button>
             </Input>
             <Link href={href.forgot_password}>
-              <a className="text-primary-500 text-sm underline mt-2 flex">Forgot password?</a>
+              <a className="mt-2 flex text-sm text-primary-500 underline">
+                Forgot password?
+              </a>
             </Link>
             <Button name="Sign In" />
           </Form>

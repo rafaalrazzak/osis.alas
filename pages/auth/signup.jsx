@@ -7,13 +7,12 @@ import Input from "@/componentsAuth/Input";
 import Button from "@/componentsAuth/Button";
 import { useUser } from "@/context/user";
 
-
 export async function getServerSideProps(ctx) {
-  const token = ctx.req.headers.cookie?
-  .split(";")?
-  .find((c) => c.includes("sb-access-token"))?
-  .split("=")[1]
-  
+  const token = ctx.req.headers.cookie
+    ?.split(";")
+    .find((c) => c.includes("sb-access-token"))
+    ?.split("=")[1];
+
   if (token) {
     ctx.res.writeHead(302, {
       Location: "/",
@@ -72,7 +71,6 @@ export default function SignIn() {
               minLength="8"
               onChange={(e) => setPass(e.target.value)}
             >
-           
               <button
                 type="button"
                 onClick={() => setIsPassword(!isPassword)}

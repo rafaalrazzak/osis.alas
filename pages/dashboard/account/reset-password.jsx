@@ -21,22 +21,12 @@ function Validation() {
 }
 
 export function getServerSideProps(ctx) {
-  const cookie = ctx.req.headers.cookie;
-  //cookie parse
-  const token = cookie?
-    .split(";")
-    .map((param) => param.split("="));
-  for (let i = 0; i < token?.length; i++) {
-    if (token[i][0] === "sb-access-token") {
-      return {
-        props: {
-          token: token[i][1],
-        },
-      };
-    }
-  }
+  const token = ctx.req.headers.cookie
+    ?.split(";")
+    ?.find((c) => c.includes("sb-access-token"))
+    ?.split("=")[1];
   return {
-    props: {},
+    props: { token },
   };
 }
 

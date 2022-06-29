@@ -11,10 +11,10 @@ import {
 } from "@components";
 import { rightButtonData } from "@/data/navbar";
 import href from "@/data/href";
-import supabase from "@/libs/supabase";
+import { useUser } from "@/context/user";
 
 export default function Layout({ children, noBg }) {
-  const session = supabase.auth.session();
+  const { user } = useUser();
 
   return (
     <>
@@ -53,7 +53,7 @@ export default function Layout({ children, noBg }) {
                 <HiInboxIn className="mr-2 h-auto w-6" />
                 Kirim Saran
               </Button>
-              {session && (
+              {user && (
                 <Button
                   variant="lightOpacity"
                   href={href.saran}

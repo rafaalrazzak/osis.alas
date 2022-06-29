@@ -6,7 +6,7 @@
       "@/libs/*": ["libs/*"],
       "@/data/*": ["data/*"],
       "@/context/*": ["context/*"],
-      "@/componentsAuth/*": ["components/auth/*"],
+      "@/componentsAuth/*": ["components/auth/*"]
     }
   }
 }

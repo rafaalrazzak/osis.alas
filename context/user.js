@@ -44,6 +44,16 @@ const Provider = ({ children }) => {
     });
   }, [user]);
 
+  async function requireAuth() {
+    const { user } = useUser();
+
+    useEffect(() => {
+      if (!user) {
+        router.push("/");
+      }
+    }, [user, router]);
+  }
+
   async function signup(username, email, password) {
     const { error } = await supabase.auth.signUp({
       email: email,
@@ -87,7 +97,7 @@ const Provider = ({ children }) => {
   async function resetPass(email) {
     const { error } = await supabase.auth.api.resetPasswordForEmail(
       email,
-     "/dashboard/account/reset-password",
+      "/dashboard/account/reset-password"
     );
     if (error) {
       toast.error("Terjadi masalah");
@@ -109,6 +119,7 @@ const Provider = ({ children }) => {
   }
 
   const exposed = {
+    requireAuth,
     user,
     signup,
     signin,
