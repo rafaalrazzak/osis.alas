@@ -14,7 +14,7 @@ import href from "@/data/href";
 import { useUser } from "@/context/user";
 
 export default function Layout({ children, noBg }) {
-  const {user} = useUser()
+  const { user } = useUser();
 
   return (
     <>

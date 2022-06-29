@@ -13,7 +13,6 @@ export default function ForgotPassword() {
   function onSubmit(e) {
     e.preventDefault();
     resetPass(email);
-   
   }
 
   return (

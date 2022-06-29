@@ -7,4 +7,4 @@ const href = {
   saran: "/dashboard/saran",
 };
 
-export default href
+export default href;
