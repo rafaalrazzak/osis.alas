@@ -61,9 +61,8 @@ export default function Home({ blog, pendapat }) {
                   <Button
                     variant="solidYellow"
                     href={href.kirim}
-                    className={`mb-2 w-full justify-center sm:w-8/12 md:w-4/12 lg:w-8/12 ${
-                      user ?? "w-full sm:w-8/12 md:w-4/12 lg:w-8/12"
-                    }`}
+                    className={`mb-2 w-full justify-center sm:w-8/12 md:w-4/12 lg:w-8/12 ${user ?? "w-full sm:w-8/12 md:w-4/12 lg:w-8/12"
+                      }`}
                   >
                     <HiInboxIn className="mr-2 h-auto w-6" />
                     Kirim Saran
@@ -174,7 +173,7 @@ export default function Home({ blog, pendapat }) {
         </section>
 
         <section className="py-20">
-          <div className="flex flex-col lg:mx-24 ">
+          <div className="mx-4 flex flex-col lg:mx-24 ">
             <div className="w-full px-6 py-4 text-center md:text-start">
               <SectionBadge>Artikel terbaru</SectionBadge>
               <SectionDescription>
