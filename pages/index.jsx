@@ -20,10 +20,20 @@ import {
 } from "@components";
 import { useUser } from "@/context/user";
 import href from "@/data/href";
+import supabase from "@/libs/supabase";
 import settings from "@/libs/sliderSetting";
 
-export default function Home() {
+export async function getStaticProps() {
+  const { data: pendapat, error } = await supabase.from("pendapat").select();
+  if (error) throw error;
+  return {
+    props: { pendapat },
+  };
+}
+
+export default function Home({pendapat}) {
   const { user } = useUser();
+
   return (
     <>
       <SEO title="Home" />
@@ -168,30 +178,15 @@ export default function Home() {
               </div>
             </div>
             <Slider className="mt-16" {...settings}>
-              <TestimonialCard
-                testimoni={'"Kita resmi menamatkan game membuat web"'}
-                avatar="https://images.unsplash.com/photo-1605462863863-10d9e47e15ee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
-                name="Ilham Kurniawan"
-                job="Langganan Bang Windah"
-              />
-              <TestimonialCard
-                testimoni={'"GG Gaming Ga Guys?"'}
-                avatar="https://images.unsplash.com/photo-1528763380143-65b3ac89a3ff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
-                name="Windah Basudara"
-                job="Youtuber Gaming"
-              />
-              <TestimonialCard
-                testimoni={'"Gamer ganteng idaman"'}
-                avatar="https://images.unsplash.com/photo-1599566147214-ce487862ea4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
-                name="Reza Pardede"
-                job="Yotuber No 1"
-              />
-              <TestimonialCard
-                testimoni={'"Chotomate kudasai"'}
-                avatar="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
-                name="Regi Halimawan"
-                job="Youtuber No Toxic"
-              />
+              {pendapat?.map(({ name, text, avatar, job }, i) => (
+                <TestimonialCard
+                  key={i}
+                  testimoni={`"${text}"`}
+                  avatar={avatar}
+                  name={name}
+                  job={job}
+                />
+              ))}
             </Slider>
           </Container>
         </section>

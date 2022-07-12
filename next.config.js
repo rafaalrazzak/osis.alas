@@ -4,7 +4,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com", "oonjnptqlmejrjbdmkwb.supabase.co"],
   },
   webpack(config) {
     config.module.rules.push({
