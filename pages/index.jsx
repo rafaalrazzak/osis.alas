@@ -91,8 +91,8 @@ export default function Home() {
             <div className="flex flex-wrap items-center">
               <div className="w-full px-4 lg:mt-10 lg:w-6/12 lg:px-10">
                 <div className="relative w-full sm:p-10">
-                  <div className="absolute -top-12 left-5 z-[-1] h-64 w-64 bg-blue-100 shadow-lg sm:top-5 sm:left-[5px] lg:flex" />
-                  <div className="absolute bottom-[-35px] right-[5px] z-[-1] h-64 w-64 rounded-full bg-blue-500 shadow-lg lg:flex" />
+                  <div className="absolute top-0 left-5 z-[-1] h-64 w-64 bg-blue-100 shadow-lg sm:top-5 sm:left-[5px] lg:flex" />
+                  <div className="absolute bottom-0 right-[5px] z-[-1] h-64 w-64 rounded-full bg-blue-500 shadow-lg lg:flex" />
                   <div className="flex w-full items-center justify-center rounded-lg bg-[#FFB1A3] shadow-xl">
                     <Image
                       alt="Intro"
