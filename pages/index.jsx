@@ -20,51 +20,10 @@ import {
 } from "@components";
 import { useUser } from "@/context/user";
 import href from "@/data/href";
+import settings from "@/libs/sliderSetting";
 
 export default function Home() {
   const { user } = useUser();
-
-  const convertImage = ({ w, h, src }) => `
-       <Image src="${src}" width="${w}" height="${h}" quality="1"/>
-         `;
-  const toBase64 = (str) =>
-    typeof window === "undefined"
-      ? Buffer.from(str).toString("base64")
-      : window.btoa(str);
-  const settings = {
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
 
   return (
     <>
@@ -113,11 +72,6 @@ export default function Home() {
                   height={300}
                   alt="Hero"
                   src="/Hero.png"
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                    convertImage(10, 10, "/Hero.png")
-                  )}`}
                 />
               </div>
             </div>
@@ -153,11 +107,6 @@ export default function Home() {
                       src="/Intro.png"
                       width="300"
                       height="300"
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        convertImage(10, 10, "/Intro.png")
-                      )}`}
                     />
                   </div>
                 </div>
@@ -206,11 +155,6 @@ export default function Home() {
                     alt="Join"
                     width={300}
                     height={500}
-                    loading="lazy"
-                    placeholder="blur"
-                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                      convertImage(10, 10, "/Menfess.png")
-                    )}`}
                   />
                 </div>
               </div>

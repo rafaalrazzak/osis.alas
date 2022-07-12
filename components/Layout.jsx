@@ -19,10 +19,16 @@ export default function Layout({ children, noBg }) {
   return (
     <>
       <Navbar
+        items={[
+          { text: "Home", href: href.home },
+          { text: "Tentang", href: href.tentang },
+          { text: "Kontak", href: href.kontak },
+          { text: "Kirim Saran", href: href.kirim },
+        ]}
         logo={
           <div className="flex w-full items-center justify-start text-base uppercase tracking-wide text-white md:gap-2 xl:my-6 ">
             <Logo />
-            <span className="hidden drop-shadow-sm md:flex md:px-2">
+            <span className="hidden drop-shadow-sm md:flex md:px-2 text-sm">
               OSIS SMK AL-ASIYAH
             </span>
           </div>
