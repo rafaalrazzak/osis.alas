@@ -28,7 +28,10 @@ export async function getStaticProps() {
   const { data: pendapat, error: errorPendapat } = await supabase
     .from("pendapat")
     .select();
-  const { data: blog, error: errorBlog } = await supabase.from("blog").select();
+  const { data: blog, error: errorBlog } = await supabase
+    .from("blog")
+    .select()
+    .order("id", { ascending: false });
   if (errorPendapat) throw errorPendapat;
   if (errorBlog) throw errorBlog;
   return {
