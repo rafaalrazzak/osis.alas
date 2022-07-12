@@ -7,7 +7,8 @@
       "@/data/*": ["data/*"],
       "@/context/*": ["context/*"],
       "@/componentsAuth/*": ["components/auth/*"],
-      "@/hooks/*": ["hooks/**/*"]
+      "@/hooks/*": ["hooks/*"],
+      "@/section/*": ["section/*"]
     }
   }
 }

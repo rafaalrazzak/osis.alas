@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
-import { Layout, Gradient } from "@components";
+import { Layout, Gradient, SEO } from "@components";
 import Form from "@/componentsAuth/Form";
 import Input from "@/componentsAuth/Input";
 import Button from "@/componentsAuth/Button";
@@ -17,9 +17,7 @@ export default function ForgotPassword() {
 
   return (
     <>
-      <Head>
-        <title>OSIS | Forgot Password</title>
-      </Head>
+      <SEO title="Forgot Password" />
       <div className="relative">
         <Gradient />
         <Layout>

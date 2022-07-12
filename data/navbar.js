@@ -1,4 +1,3 @@
-import supabase from "@/libs/supabase";
 import href from "./href";
 
 const signin = {
@@ -12,9 +11,8 @@ const signout = {
   href: href.signout,
 };
 
-export function rightButtonData() {
-  const session = supabase.auth.session();
-  const btnSession = session ? signout : signin;
+const rightButtonData = () => {
+  return [signin, signout];
+};
 
-  return btnSession;
-}
+export default rightButtonData

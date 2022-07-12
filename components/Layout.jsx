@@ -9,7 +9,6 @@ import {
   FooterLink,
   Gradient,
 } from "@components";
-import { rightButtonData } from "@/data/navbar";
 import href from "@/data/href";
 import { useUser } from "@/context/user";
 
@@ -23,17 +22,29 @@ export default function Layout({ children, noBg }) {
           { text: "Home", href: href.home },
           { text: "Tentang", href: href.tentang },
           { text: "Kontak", href: href.kontak },
-          { text: "Kirim Saran", href: href.kirim },
+          { text: "Kirim Saran", href: href.kirimSaran },
         ]}
         logo={
           <div className="flex w-full items-center justify-start text-base uppercase tracking-wide text-white md:gap-2 xl:my-6 ">
             <Logo />
-            <span className="hidden drop-shadow-sm md:flex md:px-2 text-sm">
+            <span className="hidden text-sm drop-shadow-sm md:flex md:px-2">
               OSIS SMK AL-ASIYAH
             </span>
           </div>
         }
-        rightButton={rightButtonData}
+        rightButton={
+          !user
+            ? {
+                variant: "solidBlue",
+                children: "Sign In",
+                href: "/auth/signin",
+              }
+            : {
+                variant: "solidRed",
+                children: "Sign Out",
+                href: "/auth/signout",
+              }
+        }
       />
       {!noBg && <Gradient />}
 

@@ -1,11 +1,9 @@
-import Head from "next/head";
+import { SEO } from "@components";
 import { Layout, Form, Gradient, Container } from "@components";
 export default function Kirim() {
   return (
     <div>
-      <Head>
-        <title>OSIS | Kirim Saran</title>
-      </Head>
+      <SEO title="Kirim Saran" />
       <Layout>
         <Gradient />
         <Container>

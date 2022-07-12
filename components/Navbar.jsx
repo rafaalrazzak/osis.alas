@@ -1,12 +1,11 @@
 import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
+import { MdMenu, MdClose } from "react-icons/md";
 import { Button, Container, Link } from "@components";
-import useIsScrollTop from "hooks/useIsScrollTop";
 
-function Navbar({ items, logo, rightButtonHref, className, rightButton }) {
+function Navbar({ items, logo, className, rightButton, rightButtonHref }) {
   const [collapse, setCollpase] = useState(false);
-
   useEffect(() => {
     function responsiveNavbar() {
       const vw = window.outerWidth;
@@ -22,19 +21,17 @@ function Navbar({ items, logo, rightButtonHref, className, rightButton }) {
     window.addEventListener("resize", responsiveNavbar);
   }, []);
 
-  const isTop = useIsScrollTop();
-
   return (
     <nav
       className={clsx(
-        "firefox:bg-opacity-100 fixed top-0 z-30 flex h-20 w-screen items-center justify-between transition-all duration-300 ease-in-out",
-        isTop && "border-none bg-transparent ",
-        !isTop &&
-          "border-b border-gray-200/50  bg-gradient-to-br from-teal-500/50 to-sky-400/50 backdrop-blur-lg "
+        "sticky top-0 left-0 z-50 w-full bg-gradient-to-tr from-teal-500 to-sky-500 md:absolute",
+        className
       )}
     >
-      <Container>
-         <div className={"flex items-center justify-between py-6 lg:py-0"}>
+      <Container className="w-full">
+        <div
+          className={"flex w-full items-center justify-between py-2 lg:py-0"}
+        >
           <div className={"w-[45px] md:w-[31%]"}>
             <Link className={"text-xl font-bold"} href="/">
               {logo}
@@ -42,45 +39,23 @@ function Navbar({ items, logo, rightButtonHref, className, rightButton }) {
           </div>
           <div
             className={clsx(
-              "fixed top-0 flex w-2/6 flex-col bg-blue-500 px-10 py-16 transition-all md:flex md:w-64 lg:relative lg:w-10/12 lg:flex-row lg:items-center lg:bg-transparent lg:px-0 lg:py-0 rounded-bl-xl",
+              "md:bg-bg-gradient fixed top-0 flex h-full w-full flex-col rounded-bl-xl bg-gradient-to-br from-teal-500/50 to-sky-500/50 px-10 py-16 shadow-md backdrop-blur-lg transition-all md:flex md:w-64 lg:relative lg:w-10/12 lg:flex-row lg:items-center lg:from-transparent lg:to-transparent lg:px-0 lg:py-0 lg:shadow-none",
               collapse ? "right-[-100%]" : "right-0"
             )}
           >
             <div className={"flex w-full lg:w-8/12 lg:justify-center"}>
-              {/* mobile close */}
-              <button
-                aria-label="Close Button"
-                onClick={() => setCollpase(true)}
-                className={
-                  "absolute top-0 right-0 mt-8 mr-10 cursor-pointer lg:hidden"
-                }
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className={"w-6 text-white/75"}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1={18} y1={6} x2={6} y2={18} />
-                  <line x1={6} y1={6} x2={18} y2={18} />
-                </svg>
-              </button>
               <ul
                 className={
-                  "-my-2 flex flex-col lg:my-0 lg:-mx-6 lg:flex-row lg:items-center"
+                  "flex w-full flex-col gap-2 lg:my-0 lg:flex-row lg:items-center lg:justify-center"
                 }
               >
                 {items.map((item) => (
                   <li key={item.text}>
                     <Link
                       href={item.href}
-                      className={`inline-block py-2 text-white lg:mx-6 lg:py-10 ${
+                      className={`flex py-2 text-white lg:mx-6 ${
                         item.active
-                          ? "font-bold"
+                          ? "font-bold underline"
                           : "text-opacity-75 hover:text-opacity-100"
                       } transition-all`}
                     >
@@ -98,8 +73,7 @@ function Navbar({ items, logo, rightButtonHref, className, rightButton }) {
               <Button
                 href={rightButtonHref}
                 size="small"
-                className={"mt-4 justify-center rounded lg:ml-8 lg:mt-0"}
-                variant="solidBlue"
+                className={"mt-4 justify-center lg:ml-8 lg:mt-0"}
                 {...rightButton}
               />
             </div>
@@ -108,23 +82,14 @@ function Navbar({ items, logo, rightButtonHref, className, rightButton }) {
           {/* mobile toggler */}
           <button
             aria-label="Hamburger Button"
-            onClick={() => setCollpase(false)}
-            className={"ml-auto lg:hidden"}
+            onClick={() => setCollpase(!collapse)}
+            className={"z-30 ml-auto lg:hidden"}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className={"w-6 fill-current text-white"}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1={3} y1={12} x2={21} y2={12} />
-              <line x1={3} y1={6} x2={21} y2={6} />
-              <line x1={3} y1={18} x2={21} y2={18} />
-            </svg>
+            {collapse ? (
+              <MdMenu className="text-white" size={20} />
+            ) : (
+              <MdClose className="text-white" size={20} />
+            )}
           </button>
         </div>
       </Container>
