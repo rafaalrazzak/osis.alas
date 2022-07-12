@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
-import Head from "next/head";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Layout, Gradient, Link } from "@components";
+import { Layout, Gradient, Link, SEO } from "@components";
 import Form from "@/componentsAuth/Form";
 import Input from "@/componentsAuth/Input";
 import Button from "@/componentsAuth/Button";
@@ -25,9 +24,7 @@ export default function SignIn() {
 
   return (
     <>
-      <Head>
-        <title>OSIS | Sign In</title>
-      </Head>
+      <SEO title="Sign In" />
       <div className="relative">
         <Gradient />
         <Layout>

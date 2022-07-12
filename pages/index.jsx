@@ -6,7 +6,6 @@ import {
 import { FiTrendingUp, FiPlay, FiUser } from "react-icons/fi";
 import Slider from "react-slick";
 import Image from "next/image";
-import Head from "next/head";
 import {
   Layout,
   Button,
@@ -17,63 +16,37 @@ import {
   SectionDescription,
   SectionTitle,
   TestimonialCard,
+  SEO,
+  BlogCard,
 } from "@components";
 import { useUser } from "@/context/user";
 import href from "@/data/href";
+import supabase from "@/libs/supabase";
+import settings from "@/libs/sliderSetting";
 
-export default function Home() {
-  const { user } = useUser();
-
-  const convertImage = ({ w, h, src }) => `
-       <Image src="${src}" width="${w}" height="${h}" quality="1"/>
-         `;
-  const toBase64 = (str) =>
-    typeof window === "undefined"
-      ? Buffer.from(str).toString("base64")
-      : window.btoa(str);
-  const settings = {
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+export async function getStaticProps() {
+  const { data: pendapat, error: errorPendapat } = await supabase
+    .from("pendapat")
+    .select();
+  const { data: blog, error: errorBlog } = await supabase
+    .from("blog")
+    .select()
+    .order("id", { ascending: false });
+  if (errorPendapat) throw errorPendapat;
+  if (errorBlog) throw errorBlog;
+  return {
+    props: { blog, pendapat },
   };
+}
 
+export default function Home({ blog, pendapat }) {
+  const { user } = useUser();
   return (
     <>
-      <Head>
-        <title>OSIS | SMK AL-ASIYAH</title>
-      </Head>
+      <SEO title="Home" />
       <Layout noBg>
         <div className="z-[-1] w-full bg-gradient-to-br from-teal-500 to-sky-500">
-          <Container className="py-40 lg:pt-64 lg:pb-32">
+          <Container className="lg:pt-42 py-24 lg:pb-32">
             <div className="flex flex-wrap justify-center">
               <div className="w-full items-center justify-center px-8 text-center lg:w-6/12 lg:justify-start lg:text-left xl:w-6/12">
                 <h1 className="text-4xl font-semibold  leading-tight text-white lg:text-5xl">
@@ -108,17 +81,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="align-center mt-12 flex w-full justify-center rounded-lg bg-[#EAB308] md:w-8/12 lg:mt-0 lg:w-6/12">
-                <Image
-                  width={300}
-                  height={300}
-                  alt="Hero"
-                  src="/Hero.png"
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                    convertImage(10, 10, "/Hero.png")
-                  )}`}
-                />
+                <Image width={300} height={300} alt="Hero" src="/Hero.png" />
               </div>
             </div>
             <div className="mx-auto mt-20 flex flex-wrap justify-center space-y-10 md:mt-40 lg:space-x-6 lg:space-y-0">
@@ -145,19 +108,14 @@ export default function Home() {
             <div className="flex flex-wrap items-center">
               <div className="w-full px-4 lg:mt-10 lg:w-6/12 lg:px-10">
                 <div className="relative w-full sm:p-10">
-                  <div className="absolute -top-12 left-5 z-[-1] h-64 w-64 bg-blue-100 shadow-lg sm:top-5 sm:left-[5px] lg:flex" />
-                  <div className="absolute bottom-[-35px] right-[5px] z-[-1] h-64 w-64 rounded-full bg-blue-500 shadow-lg lg:flex" />
+                  <div className="absolute top-4 -left-4 z-[-1] h-64 w-64 bg-blue-100 shadow-lg sm:top-5 sm:left-[5px] lg:top-0 lg:left-5 lg:flex" />
+                  <div className="absolute bottom-[-30px] right-[5px] z-[-1] h-64 w-64 rounded-full bg-blue-500 shadow-lg lg:bottom-0 lg:right-[5px] lg:flex" />
                   <div className="flex w-full items-center justify-center rounded-lg bg-[#FFB1A3] shadow-xl">
                     <Image
                       alt="Intro"
                       src="/Intro.png"
                       width="300"
                       height="300"
-                      loading="lazy"
-                      placeholder="blur"
-                      blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                        convertImage(10, 10, "/Intro.png")
-                      )}`}
                     />
                   </div>
                 </div>
@@ -185,7 +143,7 @@ export default function Home() {
         </section>
         <section>
           <Container>
-            <div className="-mx-6 flex flex-wrap items-center">
+            <div className="flex flex-wrap items-center">
               <div className="order-2 w-full px-6 lg:w-6/12 xl:order-1">
                 <SectionBadge>Ayo Gabung Besama Kami</SectionBadge>
                 <SectionTitle>
@@ -206,11 +164,6 @@ export default function Home() {
                     alt="Join"
                     width={300}
                     height={500}
-                    loading="lazy"
-                    placeholder="blur"
-                    blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                      convertImage(10, 10, "/Menfess.png")
-                    )}`}
                   />
                 </div>
               </div>
@@ -220,7 +173,32 @@ export default function Home() {
           </Container>
         </section>
 
-        <section className="py-20 lg:py-40">
+        <section className="py-20">
+          <div className="flex flex-col lg:mx-24 ">
+            <div className="w-full px-6 py-4 text-center md:text-start">
+              <SectionBadge>Artikel terbaru</SectionBadge>
+              <SectionDescription>
+                Artikel terbaru yang telah kami tulis sedemikian rupa
+              </SectionDescription>
+            </div>
+            <div className="flex w-full flex-wrap items-center justify-center gap-4 space-y-5">
+              {blog?.map(
+                ({ id, created_at, title, contain, thumbnail, author }) => (
+                  <BlogCard
+                    key={id}
+                    date={created_at}
+                    title={title}
+                    thumbnail={thumbnail}
+                    contain={contain}
+                    author={author}
+                  />
+                )
+              )}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-20">
           <Container>
             <div className="-mx-6 flex flex-wrap">
               <div className="w-full px-6 lg:w-6/12">
@@ -232,30 +210,15 @@ export default function Home() {
               </div>
             </div>
             <Slider className="mt-16" {...settings}>
-              <TestimonialCard
-                testimoni={'"Kita resmi menamatkan game membuat web"'}
-                avatar="https://images.unsplash.com/photo-1605462863863-10d9e47e15ee?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
-                name="Ilham Kurniawan"
-                job="Langganan Bang Windah"
-              />
-              <TestimonialCard
-                testimoni={'"GG Gaming Ga Guys?"'}
-                avatar="https://images.unsplash.com/photo-1528763380143-65b3ac89a3ff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
-                name="Windah Basudara"
-                job="Youtuber Gaming"
-              />
-              <TestimonialCard
-                testimoni={'"Gamer ganteng idaman"'}
-                avatar="https://images.unsplash.com/photo-1599566147214-ce487862ea4f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
-                name="Reza Pardede"
-                job="Yotuber No 1"
-              />
-              <TestimonialCard
-                testimoni={'"Chotomate kudasai"'}
-                avatar="https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80"
-                name="Regi Halimawan"
-                job="Youtuber No Toxic"
-              />
+              {pendapat?.map(({ name, text, avatar, job }, i) => (
+                <TestimonialCard
+                  key={i}
+                  testimoni={`"${text}"`}
+                  avatar={avatar}
+                  name={name}
+                  job={job}
+                />
+              ))}
             </Slider>
           </Container>
         </section>

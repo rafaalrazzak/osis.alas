@@ -4,6 +4,7 @@ import Head from "next/head";
 import toast from "react-hot-toast";
 import supabase from "@/libs/supabase";
 import { useUser } from "@/context/user";
+import { SEO } from "@components";
 
 export async function getServerSideProps(ctx) {
   const token = ctx.req.headers.cookie
@@ -40,8 +41,7 @@ export default function SignOut() {
   }
 
   return (
-    <Head>
-      <title>OSIS | Sign Out</title>
-    </Head>
+    <SEO title="Sign Out" />
+
   );
 }

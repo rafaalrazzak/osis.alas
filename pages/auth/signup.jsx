@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Layout, Gradient } from "@components";
+import { Layout, Gradient, SEO } from "@components";
 import Form from "@/componentsAuth/Form";
 import Input from "@/componentsAuth/Input";
 import Button from "@/componentsAuth/Button";
@@ -27,7 +27,6 @@ export async function getServerSideProps(ctx) {
 
 export default function SignIn() {
   const { signup } = useUser();
-
   const [isPassword, setIsPassword] = useState(true);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -40,9 +39,7 @@ export default function SignIn() {
 
   return (
     <>
-      <Head>
-        <title>OSIS | Sign Up</title>
-      </Head>
+            <SEO title="Sign Up" />
       <div className="relative">
         <Gradient />
         <Layout>

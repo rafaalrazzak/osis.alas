@@ -1,59 +1,96 @@
+import clsx from "clsx";
 import PropTypes from "prop-types";
 import React, { useEffect, useState } from "react";
-import clsx from "clsx";
-import supabase from "@/libs/supabase";
+import { MdMenu, MdClose } from "react-icons/md";
 import { Button, Container, Link } from "@components";
 
-function useIsScrollTop() {
-  const [isTop, setIsTop] = useState(true);
+function Navbar({ items, logo, className, rightButton, rightButtonHref }) {
+  const [collapse, setCollpase] = useState(false);
   useEffect(() => {
-    function onScroll() {
-      setIsTop(window.scrollY <= 0);
+    function responsiveNavbar() {
+      const vw = window.outerWidth;
+      const threshold = 768;
+
+      if (vw <= threshold) setCollpase(true);
+
+      if (vw > threshold) setCollpase(false);
     }
-    window.addEventListener("scroll", onScroll, { passive: true });
 
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-    };
+    responsiveNavbar();
+
+    window.addEventListener("resize", responsiveNavbar);
   }, []);
 
-  return isTop;
-}
-
-function Navbar({ logo, rightButtonHref, className, rightButton }) {
-  const [rbtn, setRbtn] = useState();
-  useEffect(() => {
-    setRbtn(rightButton);
-  }, []);
-  const isTop = useIsScrollTop();
   return (
     <nav
       className={clsx(
-        "firefox:bg-opacity-100 fixed top-0 z-30 flex h-20 w-screen items-center justify-between transition-all duration-300 ease-in-out",
-        isTop && "border-none bg-transparent ",
-        !isTop &&
-          "border-b border-gray-200/50  bg-gradient-to-br from-teal-500/50 to-sky-400/50 backdrop-blur-lg "
+        "sticky top-0 left-0 z-50 w-full bg-gradient-to-tr from-teal-500 to-sky-500 py-2",
+        className
       )}
     >
       <Container className="w-full">
-        <div className={"flex items-center justify-between py-6 lg:py-0"}>
+        <div
+          className={"flex w-full items-center justify-between"}
+        >
           <div className={"w-[45px] md:w-[31%]"}>
             <Link className={"text-xl font-bold"} href="/">
               {logo}
             </Link>
           </div>
-          <div className="flex justify-center space-x-3">
-            {rbtn?.map((btn, key) => (
-              <Button
-                key={key}
+          <div
+            className={clsx(
+              "md:bg-bg-gradient fixed top-0 flex h-full w-full flex-col rounded-bl-xl bg-gradient-to-br from-teal-500/50 to-sky-500/50 px-10 py-16 shadow-md backdrop-blur-lg transition-all md:flex md:w-64 lg:relative lg:w-10/12 lg:flex-row lg:items-center lg:from-transparent lg:to-transparent lg:px-0 lg:py-0 lg:shadow-none",
+              collapse ? "right-[-100%]" : "right-0"
+            )}
+          >
+            <div className={"flex w-full lg:w-8/12 lg:justify-center"}>
+              <ul
                 className={
-                  "mt-0 justify-center text-center text-xs sm:text-sm md:text-base lg:ml-8 "
+                  "flex w-full flex-col gap-2 lg:my-0 lg:flex-row lg:items-center lg:justify-center"
                 }
+              >
+                {items.map((item) => (
+                  <li key={item.text}>
+                    <Link
+                      href={item.href}
+                      className={`flex py-2 text-white lg:mx-6 ${
+                        item.active
+                          ? "font-bold underline"
+                          : "text-opacity-75 hover:text-opacity-100"
+                      } transition-all`}
+                    >
+                      {item.text}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div
+              className={
+                "mt-auto flex w-full flex-col text-center lg:mt-0 lg:w-4/12 lg:flex-row lg:items-center lg:justify-end"
+              }
+            >
+              <Button
+                href={rightButtonHref}
                 size="small"
-                {...btn}
+                className={"mt-4 justify-center lg:ml-8 lg:mt-0"}
+                {...rightButton}
               />
-            ))}
+            </div>
           </div>
+
+          {/* mobile toggler */}
+          <button
+            aria-label="Hamburger Button"
+            onClick={() => setCollpase(!collapse)}
+            className={"z-30 ml-auto lg:hidden"}
+          >
+            {collapse ? (
+              <MdMenu className="text-white" size={20} />
+            ) : (
+              <MdClose className="text-white" size={20} />
+            )}
+          </button>
         </div>
       </Container>
     </nav>
@@ -62,7 +99,12 @@ function Navbar({ logo, rightButtonHref, className, rightButton }) {
 
 Navbar.defaultProps = {
   logo: "OSIS",
+  items: [],
+  rightButtonChildren: "Sign In",
+  rightButtonHref: "/auth/login",
+  rightButtonColor: "blue",
   className: "",
+  rightButton: {},
 };
 
 Navbar.propTypes = {
