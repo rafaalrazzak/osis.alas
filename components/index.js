@@ -19,3 +19,4 @@ export { default as Card } from "./Card";
 export { default as Background } from "./Background";
 export { default as Dots } from "./Dots";
 export { default as SEO } from "./SEO";
+export { default as BlogCard } from "./BlogCard";

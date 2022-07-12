@@ -17,6 +17,7 @@ import {
   SectionTitle,
   TestimonialCard,
   SEO,
+  BlogCard,
 } from "@components";
 import { useUser } from "@/context/user";
 import href from "@/data/href";
@@ -24,16 +25,19 @@ import supabase from "@/libs/supabase";
 import settings from "@/libs/sliderSetting";
 
 export async function getStaticProps() {
-  const { data: pendapat, error } = await supabase.from("pendapat").select();
-  if (error) throw error;
+  const { data: pendapat, error: errorPendapat } = await supabase
+    .from("pendapat")
+    .select();
+  const { data: blog, error: errorBlog } = await supabase.from("blog").select();
+  if (errorPendapat) throw errorPendapat;
+  if (errorBlog) throw errorBlog;
   return {
-    props: { pendapat },
+    props: { blog, pendapat },
   };
 }
 
-export default function Home({ pendapat }) {
+export default function Home({ blog, pendapat }) {
   const { user } = useUser();
-
   return (
     <>
       <SEO title="Home" />
@@ -136,7 +140,7 @@ export default function Home({ pendapat }) {
         </section>
         <section>
           <Container>
-            <div className="-mx-6 flex flex-wrap items-center">
+            <div className="flex flex-wrap items-center">
               <div className="order-2 w-full px-6 lg:w-6/12 xl:order-1">
                 <SectionBadge>Ayo Gabung Besama Kami</SectionBadge>
                 <SectionTitle>
@@ -164,6 +168,31 @@ export default function Home({ pendapat }) {
 
             <hr className="my-5 border-gray-100 md:my-10" />
           </Container>
+        </section>
+
+        <section className="py-20">
+          <div className="flex flex-col lg:mx-24 ">
+            <div className="w-full px-6 py-4 text-center md:text-start">
+              <SectionBadge>Artikel terbaru</SectionBadge>
+              <SectionDescription>
+                Artikel terbaru yang telah kami tulis sedemikian rupa
+              </SectionDescription>
+            </div>
+            <div className="flex w-full flex-wrap items-center justify-center gap-4 space-y-5">
+              {blog?.map(
+                ({ id, created_at, title, contain, thumbnail, author }) => (
+                  <BlogCard
+                    key={id}
+                    date={created_at}
+                    title={title}
+                    thumbnail={thumbnail}
+                    contain={contain}
+                    author={author}
+                  />
+                )
+              )}
+            </div>
+          </div>
         </section>
 
         <section className="py-20">
