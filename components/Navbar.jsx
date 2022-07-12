@@ -24,13 +24,13 @@ function Navbar({ items, logo, className, rightButton, rightButtonHref }) {
   return (
     <nav
       className={clsx(
-        "sticky top-0 left-0 z-50 w-full bg-gradient-to-tr from-teal-500 to-sky-500",
+        "sticky top-0 left-0 z-50 w-full bg-gradient-to-tr from-teal-500 to-sky-500 py-2",
         className
       )}
     >
       <Container className="w-full">
         <div
-          className={"flex w-full items-center justify-between py-2 lg:py-0"}
+          className={"flex w-full items-center justify-between"}
         >
           <div className={"w-[45px] md:w-[31%]"}>
             <Link className={"text-xl font-bold"} href="/">

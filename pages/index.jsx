@@ -31,7 +31,7 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({pendapat}) {
+export default function Home({ pendapat }) {
   const { user } = useUser();
 
   return (
@@ -39,7 +39,7 @@ export default function Home({pendapat}) {
       <SEO title="Home" />
       <Layout noBg>
         <div className="z-[-1] w-full bg-gradient-to-br from-teal-500 to-sky-500">
-          <Container className="py-24 lg:pt-42 lg:pb-32">
+          <Container className="lg:pt-42 py-24 lg:pb-32">
             <div className="flex flex-wrap justify-center">
               <div className="w-full items-center justify-center px-8 text-center lg:w-6/12 lg:justify-start lg:text-left xl:w-6/12">
                 <h1 className="text-4xl font-semibold  leading-tight text-white lg:text-5xl">
@@ -101,8 +101,8 @@ export default function Home({pendapat}) {
             <div className="flex flex-wrap items-center">
               <div className="w-full px-4 lg:mt-10 lg:w-6/12 lg:px-10">
                 <div className="relative w-full sm:p-10">
-                  <div className="absolute top-0 left-5 z-[-1] h-64 w-64 bg-blue-100 shadow-lg sm:top-5 sm:left-[5px] lg:flex" />
-                  <div className="absolute bottom-0 right-[5px] z-[-1] h-64 w-64 rounded-full bg-blue-500 shadow-lg lg:flex" />
+                  <div className="absolute top-4 -left-4 z-[-1] h-64 w-64 bg-blue-100 shadow-lg sm:top-5 sm:left-[5px] lg:top-0 lg:left-5 lg:flex" />
+                  <div className="absolute bottom-[-30px] right-[5px] z-[-1] h-64 w-64 rounded-full bg-blue-500 shadow-lg lg:bottom-0 lg:right-[5px] lg:flex" />
                   <div className="flex w-full items-center justify-center rounded-lg bg-[#FFB1A3] shadow-xl">
                     <Image
                       alt="Intro"
