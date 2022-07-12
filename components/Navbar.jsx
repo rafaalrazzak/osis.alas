@@ -24,7 +24,7 @@ function Navbar({ items, logo, className, rightButton, rightButtonHref }) {
   return (
     <nav
       className={clsx(
-        "sticky top-0 left-0 z-50 w-full bg-gradient-to-tr from-teal-500 to-sky-500 md:absolute",
+        "sticky top-0 left-0 z-50 w-full bg-gradient-to-tr from-teal-500 to-sky-500",
         className
       )}
     >

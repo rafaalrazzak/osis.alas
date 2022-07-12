@@ -39,7 +39,7 @@ export default function Home({pendapat}) {
       <SEO title="Home" />
       <Layout noBg>
         <div className="z-[-1] w-full bg-gradient-to-br from-teal-500 to-sky-500">
-          <Container className="py-40 lg:pt-64 lg:pb-32">
+          <Container className="py-24 lg:pt-64 lg:pb-32">
             <div className="flex flex-wrap justify-center">
               <div className="w-full items-center justify-center px-8 text-center lg:w-6/12 lg:justify-start lg:text-left xl:w-6/12">
                 <h1 className="text-4xl font-semibold  leading-tight text-white lg:text-5xl">
