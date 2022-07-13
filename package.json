@@ -7,7 +7,7 @@
     "build": "next build",
     "export": "next export",
     "start": "next start",
-    "lint": "eslint ./pages/** -c .eslintrc.json --ext js,jsx",
+    "lint": "next lint",
     "fix": "eslint --fix",
     "prettier": "prettier . -w"
   },
@@ -34,6 +34,7 @@
     "@svgr/webpack": "^6.2.1",
     "@tailwindcss/forms": "^0.5.2",
     "eslint": "^8.18.0",
+    "eslint-config-next": "12.2.2",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-recommended": "^4.1.0",
     "eslint-plugin-import": "^2.26.0",

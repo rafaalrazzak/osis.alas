@@ -39,6 +39,7 @@ export default function ResetUserPassword({ token }) {
   const [isNotSame, setIsNotSame] = useState(false);
   const checkPass = () => setIsNotSame(pass !== confirmPass);
   const { updatePass } = useUser();
+  
   useEffect(() => {
     checkPass();
   }, [pass, confirmPass]);

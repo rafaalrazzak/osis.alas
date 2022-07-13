@@ -11,7 +11,7 @@ const href = {
   account: "/dashboard/account",
   resetPassword: "/dashboard/account/reset-password",
   authors: "/dashboard/blog/author",
-  createAuthor: "/dashboard/blog/author/create"
+  createAuthor: "/dashboard/blog/author/create",
 };
 
 export default href;

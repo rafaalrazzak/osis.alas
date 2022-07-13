@@ -28,11 +28,6 @@ export default function SignOut() {
   const session = supabase.auth.session();
   const { replace } = useRouter();
   const { signout } = useUser();
-  useEffect(() => {
-    if (!session) {
-      replace("/");
-    }
-  }, []);
 
   if (session) {
     signout();

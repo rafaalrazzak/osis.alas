@@ -5,7 +5,7 @@ import href from "@/data/href";
 export default function Acoount() {
   const { user } = useUser();
   return (
-    <div className="flex min-h-screen items-center justify-center flex-col">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       <p className="text center flex justify-center">
         Hello,{" "}
         <span className="font-semibold text-primary-600">
