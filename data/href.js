@@ -7,6 +7,7 @@ const href = {
   signup: "/auth/signup",
   signout: "/auth/signout",
   forgot_password: "/auth/forgot-password",
+  dashboard: "/dashboard",
   saran: "/dashboard/saran",
   account: "/dashboard/account",
   resetPassword: "/dashboard/account/reset-password",
