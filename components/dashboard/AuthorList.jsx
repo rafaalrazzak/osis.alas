@@ -44,10 +44,11 @@ export default function AuthorList({
 
       <td className="border-b border-secondary-200 bg-white px-5 py-5 text-sm">
         <Link
-          className="whitespace-no-wrap text-secondary-900"
+          className="whitespace-no-wrap text-secondary-900 text-sky-700"
           href={`https://instagram.com/${instagram}`}
-          children={instagram}
-        />
+          >
+           @{instagram}
+        </Link>
       </td>
 
       <td className="border-b border-secondary-200 bg-white px-5 py-5 text-sm">

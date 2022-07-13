@@ -42,7 +42,7 @@ export default function Blog({ blog }) {
         <div className="mx-6 my-12 ">
           <Link
             href="/"
-            className="items-center inline-flex text-primary-900 transition duration-300 ease-in-out hover:text-primary-600"
+            className="inline-flex items-center text-primary-900 transition duration-300 ease-in-out hover:text-primary-600"
           >
             <MdArrowBackIosNew size={13} />
             <h1 className="font-bold">Go home</h1>
@@ -62,26 +62,29 @@ export default function Blog({ blog }) {
                     height={35}
                     className="rounded-full object-cover"
                     priority
+                    alt={name}
                   />
                   <div>
                     <h1 className="font-semibold text-secondary-700">{name}</h1>
                     <Link
                       className="font-semibold text-primary-700 hover:text-primary-600 hover:underline"
                       href={`https:instagram.com/${instagram}`}
-                      children={`@${instagram}`}
-                    />
+                    >
+                      {`@${instagram}`}
+                    </Link>
                   </div>
                 </div>
               </div>
               {/* End Head */}
 
-              <Image src={thumbnail} className="rounded-lg " />
+              <Image src={thumbnail} className="rounded-lg "alt={title} />
               <div className="flex flex-col">
                 <ReactMarkdown
                   className="text-secondary-900"
                   remarkPlugins={[remarkGfm]}
-                  children={article}
-                />
+                >
+                  {article}
+                </ReactMarkdown>
               </div>
             </div>
           </div>

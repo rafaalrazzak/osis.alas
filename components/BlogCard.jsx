@@ -38,6 +38,7 @@ export default function BlogCard({
                 src={avatar}
                 width={20}
                 height={20}
+                alt={name}
                 className="rounded-full"
                 priority
               />

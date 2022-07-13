@@ -102,43 +102,41 @@ export default function Author({ author }) {
             )}
           </button>
         </nav>
-          <div className="-mx-4 overflow-x-auto px-4 py-4 sm:-mx-8 sm:px-8">
-            <div className="inline-block min-w-full overflow-hidden rounded-lg shadow">
-              <table className="min-w-full leading-normal">
-                <thead>
-                  <tr>
-                    <AuthorHead name="Id" />
-                    <AuthorHead name="Nama" />
-                    <AuthorHead name="Job" />
-                    <AuthorHead name="Tanggal Pembuatan" />
-                    <AuthorHead name="Instagram" />
-                    <AuthorHead name="Setting" />
-                  </tr>
-                </thead>
-                <tbody>
-                  {displayAuthor.map(
-                    ({ id, name, job, created_at, avatar, instagram }) => (
-                      <AuthorList
-                        key={id}
-                        id={id}
-                        name={name}
-                        createdAt={created_at}
-                        job={job}
-                        avatar={avatar}
-                        instagram={instagram}
-                      />
-                    )
-                  )}
-                  {!filteredAuthor.length && (
-                    <div className="truncate p-4">
-                      Author tidak ditemukan
-                    </div>
-                  )}
-                </tbody>
-              </table>
-            </div>
+        <div className="-mx-4 overflow-x-auto px-4 py-4 sm:-mx-8 sm:px-8">
+          <div className="inline-block min-w-full overflow-hidden rounded-lg shadow">
+            <table className="min-w-full leading-normal">
+              <thead>
+                <tr>
+                  <AuthorHead name="Id" />
+                  <AuthorHead name="Nama" />
+                  <AuthorHead name="Job" />
+                  <AuthorHead name="Tanggal Pembuatan" />
+                  <AuthorHead name="Instagram" />
+                  <AuthorHead name="Setting" />
+                </tr>
+              </thead>
+              <tbody>
+                {displayAuthor.map(
+                  ({ id, name, job, created_at, avatar, instagram }) => (
+                    <AuthorList
+                      key={id}
+                      id={id}
+                      name={name}
+                      createdAt={created_at}
+                      job={job}
+                      avatar={avatar}
+                      instagram={instagram}
+                    />
+                  )
+                )}
+                {!filteredAuthor.length && (
+                  <div className="truncate p-4">Author tidak ditemukan</div>
+                )}
+              </tbody>
+            </table>
           </div>
         </div>
+      </div>
     </>
   );
 }

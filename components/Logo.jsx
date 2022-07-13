@@ -1,6 +1,6 @@
 import Image from "next/image";
 export default function Logo({ className }) {
-  const Img = ({ ...props }) => {
+  const Img = (props) => {
     return <Image width={40} height={40} {...props} />;
   };
   return (

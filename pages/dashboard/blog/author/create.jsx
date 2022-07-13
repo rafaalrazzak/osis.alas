@@ -23,11 +23,11 @@ export default function CreateAuthor() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await SubmitImage(author.name, fileExt, selectedImage).then(({ Key }) =>
-      setAuthor({...author, avatar: Key })
+      setAuthor({ ...author, avatar: Key })
     );
     await SubmitAuthor(name, job, instagram, avatar);
   };
-  console.log(author)
+  console.log(author);
 
   return (
     <>

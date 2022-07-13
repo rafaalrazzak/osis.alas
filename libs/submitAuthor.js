@@ -2,7 +2,7 @@ import toast from "react-hot-toast";
 import supabase from "./supabase";
 
 export const SubmitAuthor = async (name, job, instagram, avatar) => {
-    console.log(avatar)
+  console.log(avatar);
   const { data, error } = await supabase.from("author").insert({
     name,
     job,
