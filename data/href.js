@@ -8,6 +8,10 @@ const href = {
   signout: "/auth/signout",
   forgot_password: "/auth/forgot-password",
   saran: "/dashboard/saran",
+  account: "/dashboard/account",
+  resetPassword: "/dashboard/account/reset-password",
+  authors: "/dashboard/blog/author",
+  createAuthor: "/dashboard/blog/author/create"
 };
 
 export default href;

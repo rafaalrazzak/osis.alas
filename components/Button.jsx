@@ -23,6 +23,7 @@ function Button({
     `;
 
   const sizes = {
+    xs: "text-xs p-1",
     small: "text-sm py-2 px-3",
     normal: "px-6 py-3",
   };

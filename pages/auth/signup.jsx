@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Head from "next/head";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Layout, Gradient, SEO } from "@components";
 import Form from "@/componentsAuth/Form";

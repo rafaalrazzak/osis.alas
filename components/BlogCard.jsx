@@ -27,18 +27,19 @@ export default function BlogCard({
         </Link>
         <div className="flex flex-col gap-2 p-4">
           <div>
-            <p className="text-sm text-primary-900">{localDate(date)}</p>
+            <time className="text-sm text-primary-900">{localDate(date)}</time>
             <Link href={blogUrl}>
               <h2 className="text-2xl font-bold tracking-tight text-primary-600">
                 {title}
               </h2>
             </Link>
-            <div className="flex items-center gap-2 rounded text-sm text-primary-900">
+            <div className="flex items-center gap-2 rounded py-2 text-sm text-primary-900">
               <Image
                 src={avatar}
                 width={20}
                 height={20}
                 className="rounded-full"
+                priority
               />
               <p>{name}</p>
             </div>

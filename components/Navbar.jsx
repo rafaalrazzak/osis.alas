@@ -49,7 +49,7 @@ function Navbar({ items, logo, className, rightButton, rightButtonHref }) {
                   <li key={item.text}>
                     <Link
                       href={item.href}
-                      className={`flex py-2 text-white lg:mx-6 ${
+                      className={`flex text-white lg:mx-6 ${
                         item.active
                           ? "font-bold underline"
                           : "text-opacity-75 hover:text-opacity-100"
