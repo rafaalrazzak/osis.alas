@@ -46,7 +46,7 @@ export default function Layout({ children, noBg }) {
               }
         }
       />
-      {!noBg && <Gradient />}
+      <div className="relative">{!noBg && <Gradient />}</div>
 
       <Toaster />
       {children}

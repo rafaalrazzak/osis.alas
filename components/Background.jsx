@@ -1,19 +1,12 @@
-import Image from "next/image";
+import Image from "next/future/image";
 export default function Background() {
   return (
     <>
       <Image
         src="/bg-gradient.png"
-        layout="fill"
-        className="opacity:80 w-screen lg:opacity-60"
-        objectFit="cover"
+        className="opacity:80  object-cover lg:opacity-60"
       />
-      <Image
-        src="/grid.png"
-        layout="fill"
-        className="w-screen opacity-30"
-        objectFit="cover"
-      />
+      <Image src="/grid.png" className="object-cover opacity-30" />
     </>
   );
 }

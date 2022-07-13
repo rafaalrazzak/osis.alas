@@ -30,7 +30,7 @@ export async function getStaticProps() {
     .select();
   const { data: blog, error: errorBlog } = await supabase
     .from("blog")
-    .select()
+    .select(`*, author (*)`)
     .order("id", { ascending: false });
   if (errorPendapat) throw errorPendapat;
   if (errorBlog) throw errorBlog;
@@ -41,6 +41,7 @@ export async function getStaticProps() {
 
 export default function Home({ blog, pendapat }) {
   const { user } = useUser();
+  const MAX_BLOG_CARD = 3;
   return (
     <>
       <SEO title="Home" />
@@ -182,18 +183,29 @@ export default function Home({ blog, pendapat }) {
               </SectionDescription>
             </div>
             <div className="flex w-full flex-wrap items-center justify-center gap-4 space-y-5">
-              {blog?.map(
-                ({ id, created_at, title, contain, thumbnail, author }) => (
-                  <BlogCard
-                    key={id}
-                    date={created_at}
-                    title={title}
-                    thumbnail={thumbnail}
-                    contain={contain}
-                    author={author}
-                  />
-                )
-              )}
+              {blog
+                .slice(0, 3)
+                .map(
+                  ({
+                    id,
+                    created_at,
+                    title,
+                    description,
+                    thumbnail,
+                    author,
+                    slug,
+                  }) => (
+                    <BlogCard
+                      key={id}
+                      title={title}
+                      description={description}
+                      thumbnail={thumbnail}
+                      date={created_at}
+                      author={author}
+                      slug={slug}
+                    />
+                  )
+                )}
             </div>
           </div>
         </section>
