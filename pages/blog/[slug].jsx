@@ -5,6 +5,7 @@ import Image from "next/future/image";
 import supabase from "@/libs/supabase";
 import { Container, Layout, Link, SEO } from "@components";
 import localDate from "@/libs/localDate";
+
 export async function getStaticProps({ params }) {
   const { slug } = params;
   const { data } = await supabase
@@ -41,7 +42,7 @@ export default function Blog({ blog }) {
         <div className="mx-6 my-12 ">
           <Link
             href="/"
-            className="flex items-center gap-1 text-primary-900 transition duration-300 ease-in-out hover:text-primary-600"
+            className="items-center inline-flex text-primary-900 transition duration-300 ease-in-out hover:text-primary-600"
           >
             <MdArrowBackIosNew size={13} />
             <h1 className="font-bold">Go home</h1>

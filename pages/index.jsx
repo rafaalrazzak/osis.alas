@@ -184,7 +184,7 @@ export default function Home({ blog, pendapat }) {
             </div>
             <div className="flex w-full flex-wrap items-center justify-center gap-4 space-y-5">
               {blog
-                .slice(0, 3)
+                .slice(0, MAX_BLOG_CARD)
                 .map(
                   ({
                     id,
