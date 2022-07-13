@@ -33,12 +33,13 @@ export default function BlogCard({
                 {title}
               </h2>
             </Link>
-            <div className="flex items-center gap-2 rounded text-sm text-primary-900">
+            <div className="flex items-center gap-2 rounded py-2 text-sm text-primary-900">
               <Image
                 src={avatar}
                 width={20}
                 height={20}
                 className="rounded-full"
+                priority
               />
               <p>{name}</p>
             </div>
