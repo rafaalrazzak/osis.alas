@@ -39,7 +39,7 @@ export default function SignIn() {
 
   return (
     <>
-            <SEO title="Sign Up" />
+      <SEO title="Sign Up" />
       <div className="relative">
         <Gradient />
         <Layout>

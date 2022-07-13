@@ -52,11 +52,10 @@ const Provider = ({ children }) => {
     return authSession;
   }
 
-  function isAuth(){
-  
+  function isAuth() {
     supabase.auth.onAuthStateChange((evn, session) => {
-      if(session) router.push("/")
-    })
+      if (session) router.push("/");
+    });
   }
 
   function requireAuth() {

@@ -40,8 +40,5 @@ export default function SignOut() {
     replace("/");
   }
 
-  return (
-    <SEO title="Sign Out" />
-
-  );
+  return <SEO title="Sign Out" />;
 }

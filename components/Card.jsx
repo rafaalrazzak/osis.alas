@@ -1,7 +1,6 @@
 import { Container, Dots } from "@components";
 import localDate from "@/libs/localDate";
 export default function Card({ from, message, date }) {
-  
   return (
     <Container>
       <div className="my-2 mb-4 flex flex-col rounded-lg bg-white/60 px-8 pt-6 pb-8 shadow-md filter backdrop-blur-lg">
