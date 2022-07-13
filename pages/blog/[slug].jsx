@@ -3,6 +3,7 @@ import supabase from "@/libs/supabase";
 import { Container, Layout, Link, SEO } from "@components";
 import localDate from "@/libs/localDate";
 import Image from "next/future/image";
+import siteMetadata from "@/data/siteMetadata";
 
 export async function getStaticProps({ params }) {
   const { slug } = params;
@@ -31,11 +32,11 @@ export async function getStaticPaths() {
 }
 
 export default function Blog({ blog }) {
-  const { title, created_at, article, author, thumbnail, slug } = blog;
+  const { title, created_at, article, description, author, thumbnail } = blog;
   const { name, avatar, instagram } = author;
   return (
     <>
-      <SEO title={title} />
+      <SEO title={title} description={description} thumbnail={thumbnail} />
       <Layout>
         <div className="mx-6 my-12 ">
           <Link

@@ -20,7 +20,7 @@ export default function SignIn() {
     signin(email, pass);
   };
 
-  isAuth()
+  isAuth();
 
   return (
     <>
