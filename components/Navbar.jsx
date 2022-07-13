@@ -39,23 +39,23 @@ function Navbar({ items, logo, className, rightButton, rightButtonHref }) {
               collapse ? "right-0" : "right-[-100%]"
             )}
           >
-            <div className={"flex w-full lg:w-8/12 lg:justify-center"}>
+            <div className={"flex w-full flex-1 lg:w-8/12 lg:justify-center"}>
               <ul
                 className={
                   "flex w-full flex-col gap-2 lg:my-0 lg:flex-row lg:items-center lg:justify-center"
                 }
               >
                 {items.map((item) => (
-                  <li key={item.text}>
+                  <li key={item?.text}>
                     <Link
-                      href={item.href}
-                      className={`flex text-white lg:mx-6 ${
-                        item.active
+                      href={item?.href}
+                      className={`flex text-white lg:mx-4 ${
+                        item?.active
                           ? "font-bold underline"
                           : "text-opacity-75 hover:text-opacity-100"
                       } transition-all`}
                     >
-                      {item.text}
+                      {item?.text}
                     </Link>
                   </li>
                 ))}
@@ -63,13 +63,13 @@ function Navbar({ items, logo, className, rightButton, rightButtonHref }) {
             </div>
             <div
               className={
-                "mt-auto flex w-full flex-col text-center lg:mt-0 lg:w-4/12 lg:flex-row lg:items-center lg:justify-end"
+                "flex flex-col text-center lg:mt-0 lg:flex-row lg:items-center lg:justify-end"
               }
             >
               <Button
                 href={rightButtonHref}
                 size="small"
-                className={"mt-4 justify-center lg:ml-8 lg:mt-0"}
+                className={"mt-4 justify-center lg:mt-0"}
                 {...rightButton}
               />
             </div>

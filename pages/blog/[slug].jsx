@@ -77,7 +77,7 @@ export default function Blog({ blog }) {
               </div>
               {/* End Head */}
 
-              <Image src={thumbnail} className="rounded-lg "alt={title} />
+              <Image src={thumbnail} className="rounded-lg " alt={title} />
               <div className="flex flex-col">
                 <ReactMarkdown
                   className="text-secondary-900"

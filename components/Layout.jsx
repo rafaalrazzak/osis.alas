@@ -23,6 +23,7 @@ export default function Layout({ children, noBg }) {
           { text: "Tentang", href: href.tentang },
           { text: "Kontak", href: href.kontak },
           { text: "Kirim Saran", href: href.kirimSaran },
+          user && { text: "Dashboard", href: href.dashboard },
         ]}
         logo={
           <div className="flex w-full items-center justify-start text-base uppercase tracking-wide text-white md:gap-2 xl:my-6 ">
@@ -37,12 +38,12 @@ export default function Layout({ children, noBg }) {
             ? {
                 variant: "solidBlue",
                 children: "Sign In",
-                href: "/auth/signin",
+                href: href.signin,
               }
             : {
                 variant: "solidRed",
                 children: "Sign Out",
-                href: "/auth/signout",
+                href: href.signout,
               }
         }
       />

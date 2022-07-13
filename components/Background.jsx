@@ -8,11 +8,7 @@ export default function Background() {
         alt="Background"
       />
 
-      <Image
-        src="/grid.png"
-        className="object-cover opacity-30"
-        alt="Grid"
-      />
+      <Image src="/grid.png" className="object-cover opacity-30" alt="Grid" />
     </>
   );
 }

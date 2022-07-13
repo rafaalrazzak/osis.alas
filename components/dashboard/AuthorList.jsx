@@ -46,8 +46,8 @@ export default function AuthorList({
         <Link
           className="whitespace-no-wrap text-secondary-900 text-sky-700"
           href={`https://instagram.com/${instagram}`}
-          >
-           @{instagram}
+        >
+          @{instagram}
         </Link>
       </td>
 
