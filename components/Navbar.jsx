@@ -9,11 +9,9 @@ function Navbar({ items, logo, className, rightButton, rightButtonHref }) {
   useEffect(() => {
     function responsiveNavbar() {
       const vw = window.outerWidth;
-      const threshold = 768;
+      const threshold = 1024;
 
-      if (vw <= threshold) setCollpase(true);
-
-      if (vw > threshold) setCollpase(false);
+      if (vw > threshold) setCollpase(true);
     }
 
     responsiveNavbar();
@@ -29,9 +27,7 @@ function Navbar({ items, logo, className, rightButton, rightButtonHref }) {
       )}
     >
       <Container className="w-full">
-        <div
-          className={"flex w-full items-center justify-between"}
-        >
+        <div className={"flex w-full items-center justify-between"}>
           <div className={"w-[45px] md:w-[31%]"}>
             <Link className={"text-xl font-bold"} href="/">
               {logo}
@@ -40,7 +36,7 @@ function Navbar({ items, logo, className, rightButton, rightButtonHref }) {
           <div
             className={clsx(
               "md:bg-bg-gradient fixed top-0 flex h-full w-full flex-col rounded-bl-xl bg-gradient-to-br from-teal-500/50 to-sky-500/50 px-10 py-16 shadow-md backdrop-blur-lg transition-all md:flex md:w-64 lg:relative lg:w-10/12 lg:flex-row lg:items-center lg:from-transparent lg:to-transparent lg:px-0 lg:py-0 lg:shadow-none",
-              collapse ? "right-[-100%]" : "right-0"
+              collapse ? "right-0" : "right-[-100%]"
             )}
           >
             <div className={"flex w-full lg:w-8/12 lg:justify-center"}>
@@ -86,9 +82,9 @@ function Navbar({ items, logo, className, rightButton, rightButtonHref }) {
             className={"z-30 ml-auto lg:hidden"}
           >
             {collapse ? (
-              <MdMenu className="text-white" size={20} />
-            ) : (
               <MdClose className="text-white" size={20} />
+            ) : (
+              <MdMenu className="text-white" size={20} />
             )}
           </button>
         </div>

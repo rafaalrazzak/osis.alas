@@ -1,36 +1,54 @@
 import Image from "next/future/image";
 import localDate from "@/libs/localDate";
 import Button from "./Button";
+import { Link } from "@components";
 
-export default function BlogCard({ date, title, contain, thumbnail, author }) {
+export default function BlogCard({
+  date,
+  title,
+  description,
+  thumbnail,
+  author,
+  slug,
+}) {
+  const { name, avatar } = author;
+  const blogUrl = `/blog/${slug}`;
   return (
     <div className="mx-auto max-w-md">
       <div className=" max-w-sm rounded-lg border border-gray-200 bg-white shadow-md">
-        <a href="#">
+        <Link href={blogUrl}>
           {thumbnail && (
-            <Image className="rounded-t-lg" src={thumbnail} alt={title}></Image>
+            <Image
+              className="w-full rounded-t-lg object-cover"
+              src={thumbnail}
+              alt={title}
+            ></Image>
           )}
-        </a>
+        </Link>
         <div className="flex flex-col gap-2 p-4">
-          <p className="text-sm text-primary-900">{localDate(date)}</p>
-          <a href="#">
-            <h2 className="text-2xl font-bold tracking-tight text-primary-600">
-              {title}
-            </h2>
-            {author.map((name, i) => (
-              <p
-                key={i}
-                className="inline-block rounded text-sm text-primary-900"
-              >
-                by: {name}
-              </p>
-            ))}
-          </a>
-          <p className="mb-3 font-normal text-primary-900">{contain}</p>
+          <div>
+            <p className="text-sm text-primary-900">{localDate(date)}</p>
+            <Link href={blogUrl}>
+              <h2 className="text-2xl font-bold tracking-tight text-primary-600">
+                {title}
+              </h2>
+            </Link>
+            <div className="flex items-center gap-2 rounded text-sm text-primary-900">
+              <Image
+                src={avatar}
+                width={20}
+                height={20}
+                className="rounded-full"
+              />
+              <p>{name}</p>
+            </div>
+          </div>
+          <p className="mb-3 font-normal text-primary-900">{description}</p>
           <Button
             variant="solidBlue"
             size="small"
             className="flex w-full items-center justify-center text-center"
+            href={blogUrl}
           >
             <p>Read More</p>
           </Button>

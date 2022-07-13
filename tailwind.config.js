@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   content: [
@@ -26,6 +27,7 @@ module.exports = {
           800: "#2c2788",
           900: "#181856",
         },
+        secondary: colors.gray,
       },
       animation: {
         blob: "blob 7s infinite",
