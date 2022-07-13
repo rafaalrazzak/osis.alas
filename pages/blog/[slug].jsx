@@ -48,13 +48,13 @@ export default function Blog({ blog }) {
           </Link>
         </div>
         <Container className="my-12 w-full">
-          <div className="flex flex-col items-center gap-4 ">
+          <div className="flex flex-col items-center">
             <div className="flex flex-col gap-4 text-primary-800">
               {/* Head */}
               <div className="flex flex-col items-center justify-center md:items-start md:justify-start">
                 <time className="text-sm">{localDate(created_at)}</time>
                 <h1 className="text-4xl font-bold">{title}</h1>
-                <div className="flex  items-center gap-3 text-sm">
+                <div className="flex  items-center gap-3 space-y-2 text-sm">
                   <Image
                     src={avatar}
                     width={35}

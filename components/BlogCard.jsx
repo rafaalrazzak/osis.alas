@@ -27,7 +27,7 @@ export default function BlogCard({
         </Link>
         <div className="flex flex-col gap-2 p-4">
           <div>
-            <p className="text-sm text-primary-900">{localDate(date)}</p>
+            <time className="text-sm text-primary-900">{localDate(date)}</time>
             <Link href={blogUrl}>
               <h2 className="text-2xl font-bold tracking-tight text-primary-600">
                 {title}
