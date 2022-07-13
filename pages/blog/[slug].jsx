@@ -1,10 +1,10 @@
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { MdArrowBackIosNew } from "react-icons/md";
+import Image from "next/future/image";
 import supabase from "@/libs/supabase";
 import { Container, Layout, Link, SEO } from "@components";
 import localDate from "@/libs/localDate";
-import Image from "next/future/image";
-import siteMetadata from "@/data/siteMetadata";
-
 export async function getStaticProps({ params }) {
   const { slug } = params;
   const { data } = await supabase
@@ -60,6 +60,7 @@ export default function Blog({ blog }) {
                     width={35}
                     height={35}
                     className="rounded-full object-cover"
+                    priority
                   />
                   <div>
                     <h1 className="font-semibold text-secondary-700">{name}</h1>
@@ -75,7 +76,11 @@ export default function Blog({ blog }) {
 
               <Image src={thumbnail} className="rounded-lg " />
               <div className="flex flex-col">
-                <p className="text-secondary-900">{article}</p>
+                <ReactMarkdown
+                  className="text-secondary-900"
+                  remarkPlugins={[remarkGfm]}
+                  children={article}
+                />
               </div>
             </div>
           </div>
