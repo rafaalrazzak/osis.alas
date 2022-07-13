@@ -50,13 +50,15 @@ export default function AuthorList({
         />
       </td>
 
-      <td className=" flex gap-2 border-b border-secondary-200 bg-white px-5 py-5 text-sm">
-        <span className="inline-block rounded-lg bg-sky-500 p-2 text-sm  text-white">
-          <MdUpdate />
-        </span>
-        <span className="inline-block rounded-lg bg-red-500 p-2 text-sm  text-white">
-          <MdDeleteOutline />
-        </span>
+      <td className=" border-b border-secondary-200 bg-white px-5 py-5 text-sm">
+        <div className="flex gap-2">
+          <button className="flex items-center gap-1 rounded-lg bg-sky-500 p-2 text-xs  text-white opacity-90 hover:opacity-100">
+            <MdUpdate /> Update
+          </button>
+          <button className="flex items-center gap-1 rounded-lg bg-red-500 p-2 text-xs  text-white opacity-90 hover:opacity-100">
+            <MdDeleteOutline /> Delete
+          </button>
+        </div>
       </td>
     </tr>
   );
