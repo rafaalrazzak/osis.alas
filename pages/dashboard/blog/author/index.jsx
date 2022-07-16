@@ -9,7 +9,7 @@ import { FiSearch } from "react-icons/fi";
 import AuthorHead from "@/componentsDashboard/AuthorHead";
 import localDate from "@/libs/localDate";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { data: author, error } = await supabase.from("author").select();
   if (error) throw error;
   return {

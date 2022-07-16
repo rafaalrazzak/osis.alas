@@ -45,8 +45,8 @@ function Navbar({ items, logo, className, rightButton, rightButtonHref }) {
                   "flex w-full flex-col gap-2 lg:my-0 lg:flex-row lg:items-center lg:justify-center"
                 }
               >
-                {items.map((item) => (
-                  <li key={item?.text}>
+                {items.map((item, i) => (
+                  <li key={i}>
                     <Link
                       href={item?.href}
                       className={`flex text-white lg:mx-4 ${
