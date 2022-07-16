@@ -23,12 +23,9 @@ export default function CreateAuthor() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await SubmitImage(author.name, fileExt, selectedImage).then(({ Key }) =>
-      setAuthor({ ...author, avatar: Key })
+      SubmitAuthor(name, job, instagram, Key)
     );
-    await SubmitAuthor(name, job, instagram, avatar);
   };
-  console.log(author);
-
   return (
     <>
       <SEO title="Create Author" />
