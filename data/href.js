@@ -1,6 +1,7 @@
 const href = {
   home: "/",
   tentang: "/tentang",
+	blog: "/blog",
   kontak: "/kontak",
   kirimSaran: "/kirim-saran",
   signin: "/auth/signin",

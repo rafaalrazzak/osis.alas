@@ -21,6 +21,7 @@ export default function Layout({ children, noBg }) {
         items={[
           { text: "Home", href: href.home },
           { text: "Tentang", href: href.tentang },
+					{ text: "Blog", href: href.blog},
           { text: "Kontak", href: href.kontak },
           { text: "Kirim Saran", href: href.kirimSaran },
           user && { text: "Dashboard", href: href.dashboard },

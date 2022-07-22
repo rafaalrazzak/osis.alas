@@ -2,6 +2,7 @@ import {
   HiOutlineSpeakerphone,
   HiInboxIn,
   HiOutlineAnnotation,
+	HiOutlineArrowSmRight,
 } from "react-icons/hi";
 import { FiTrendingUp, FiPlay, FiUser } from "react-icons/fi";
 import Slider from "react-slick";
@@ -12,6 +13,7 @@ import {
   Container,
   HeroFeature,
   IntroCard,
+	Link,
   SectionBadge,
   SectionDescription,
   SectionTitle,
@@ -174,7 +176,7 @@ export default function Home({ blog, pendapat }) {
           </Container>
         </section>
 
-        <section className="py-20">
+        <section className="py-6">
           <div className="mx-4 flex flex-col lg:mx-24 ">
             <div className="w-full px-6 py-4 text-center md:text-start">
               <SectionBadge>Artikel terbaru</SectionBadge>
@@ -207,6 +209,15 @@ export default function Home({ blog, pendapat }) {
                   )
                 )}
             </div>
+						<div className="mx-3 my-6 self-end">
+          <Link
+            href={href.blog}
+            className="inline-flex items-center text-primary-900 transition duration-300 ease-in-out hover:text-primary-600"
+          >
+            <h1 className="font-bold">All Post</h1>
+            <HiOutlineArrowSmRight size={13} />
+          </Link>
+        </div>
           </div>
         </section>
 
